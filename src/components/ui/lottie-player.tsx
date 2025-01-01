@@ -1,6 +1,6 @@
 'use client';
-import React, { useRef, useEffect } from 'react';
-import lottie, { AnimationItem } from 'lottie-web';
+import React from 'react';
+import Lottie from 'lottie-react';
 import { cn } from '@/lib/utils';
 
 interface LottiePlayerProps {
@@ -10,23 +10,14 @@ interface LottiePlayerProps {
 }
 
 const LottiePlayer: React.FC<LottiePlayerProps> = ({ animationData, className }) => {
-  useEffect(() => {
-    if (animationContainer.current) {
-      animationInstance.current = lottie.loadAnimation({
-        container: animationContainer.current,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      });
-    }
-    return () => {
-      animationInstance.current?.destroy();
-    };
-  }, [animationData]);
-  const animationContainer = useRef<HTMLDivElement>(null);
-  const animationInstance = useRef<AnimationItem | null>(null);
-  return <div ref={animationContainer} className={cn(`w-full max-w-[450px]`, className)} />;
+  return (
+    <Lottie
+      animationData={animationData}
+      autoPlay={true}
+      loop={true}
+      className={cn(`max-w-[450px]`, className)}
+    />
+  );
 };
 
 export default LottiePlayer;

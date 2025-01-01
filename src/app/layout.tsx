@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import './globals.css';
-import Container from '@/components/ui/container';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${workSans.className} antialiased`}>
         <div className="flex min-h-screen flex-col">
-          <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
