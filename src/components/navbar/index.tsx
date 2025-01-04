@@ -7,7 +7,7 @@ const Navbar = async () => {
   return (
     <header className="relative py-4">
       <Container className="flex items-center justify-between">
-        <div className="cursor-pointer text-2xl font-bold text-[#1e4d3a]">Pomoloop</div>
+        <div className="cursor-pointer text-xl font-bold text-[#1e4d3a] lg:text-2xl">Pomoloop</div>
         <MainNav />
       </Container>
     </header>

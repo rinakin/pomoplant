@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 
 import './globals.css';
-import Navbar from '@/components/navbar';
+import fonts from '@/lib/fonts';
 import Footer from '@/components/footer';
-
-const workSans = localFont({ src: '../assets/fonts/WorkSans-VF.ttf' });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${workSans.className} antialiased`}>
+      <body className={`${fonts.workSans.className} antialiased`}>
         <div className="flex min-h-screen flex-col">
           <main className="flex-grow">{children}</main>
           <Footer />
