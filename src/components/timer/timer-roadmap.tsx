@@ -16,12 +16,12 @@ const TimerRoadmap = () => {
         <div className="flex flex-row items-center justify-center rounded-xl bg-muted p-2 py-4 shadow min-[440px]:p-4">
           {sessions.map((item, index) => (
             <React.Fragment key={index}>
-              {index !== 0 && <RoadmapProgress completed={item.completed} />}
               <RoadmapIcon
                 phase={item.phase}
                 completed={item.completed}
                 isActive={index === activeSessionIndex}
               />
+              {index !== sessions.length - 1 && <RoadmapProgress completed={item.completed} />}
             </React.Fragment>
           ))}
         </div>

@@ -7,7 +7,9 @@ interface TimerControlsProps {
   startTimer: () => void;
   pauseTimer: () => void;
   resetTimer: () => void;
+  resetSessions: () => void;
   status: TimerStatus;
+  allSessionsCompleted: boolean;
 }
 
 const TimerControls: React.FC<TimerControlsProps> = ({
@@ -15,6 +17,8 @@ const TimerControls: React.FC<TimerControlsProps> = ({
   pauseTimer,
   resetTimer,
   status,
+  allSessionsCompleted,
+  resetSessions,
 }) => {
   const renderControls = () => {
     switch (status) {
@@ -30,7 +34,7 @@ const TimerControls: React.FC<TimerControlsProps> = ({
       case 'paused':
         return (
           <>
-            <Button onClick={status === 'paused' ? startTimer : pauseTimer}>
+            <Button variant="secondary" onClick={status === 'paused' ? startTimer : pauseTimer}>
               {status === 'paused' ? (
                 <>
                   <Play />
@@ -43,7 +47,7 @@ const TimerControls: React.FC<TimerControlsProps> = ({
                 </>
               )}
             </Button>
-            <Button onClick={resetTimer} variant="secondary">
+            <Button onClick={resetTimer} variant={'ghost'}>
               <TimerReset />
               Reset
             </Button>
@@ -55,7 +59,8 @@ const TimerControls: React.FC<TimerControlsProps> = ({
   };
   return (
     <div className="flex w-full items-center justify-center gap-4 rounded-md font-bold text-card-foreground">
-      {renderControls()}
+      {!allSessionsCompleted && renderControls()}
+      {allSessionsCompleted && <Button onClick={resetSessions}>Restart Sessions</Button>}
     </div>
   );
 };

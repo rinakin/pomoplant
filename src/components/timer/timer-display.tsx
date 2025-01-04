@@ -11,7 +11,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 const TimerDisplay = () => {
   const { time, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
     useTimerStore();
-  const { sessions, activeSessionIndex, setActiveSession } = useSessionStore();
+  const { sessions, activeSessionIndex, setActiveSession, allSessionsCompleted, resetSessions } =
+    useSessionStore();
   const activeSession = sessions[activeSessionIndex];
 
   useEffect(() => {
@@ -48,12 +49,21 @@ const TimerDisplay = () => {
               pauseTimer={pauseTimer}
               resetTimer={resetTimer}
               status={status}
+              allSessionsCompleted={allSessionsCompleted}
+              resetSessions={resetSessions}
             />
           </CardContent>
           <CardFooter className="flex items-center justify-start">
-            <p className="l:text-3xl rounded-full bg-muted px-3 py-1 text-lg font-medium md:px-4 md:text-2xl">
-              {phase}
-            </p>
+            {!allSessionsCompleted && (
+              <p className="rounded-full bg-muted px-4 py-1 text-lg font-medium md:px-6 md:text-2xl">
+                {phase}
+              </p>
+            )}
+            {allSessionsCompleted && (
+              <p className="rounded-full bg-muted px-4 py-1 text-lg font-medium md:px-6 md:text-2xl">
+                finished
+              </p>
+            )}
           </CardFooter>
         </Card>
       </Container>
