@@ -1,13 +1,8 @@
-// Represents a time structure
-export type Time = {
-  minutes: number;
-  seconds: number;
-};
-
 // Represents a Pomodoro session
 export type Session = {
-  time: Time;
-  phase: 'focus' | 'break';
+  minutes: number;
+  seconds: number;
+  phase: TimerPhase;
   completed: boolean;
 };
 
@@ -17,7 +12,10 @@ export type TimerPhase = 'focus' | 'break';
 
 // Represents timer-related data
 export type TimerData = {
-  time: Time;
+  minutes: number;
+  seconds: number;
   phase: TimerPhase; // Consistent naming
-  initialTime: Time;
+  initialSeconds: number;
+  initialMinutes: number;
+  status: TimerStatus;
 };

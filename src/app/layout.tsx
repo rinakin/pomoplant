@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import fonts from '@/lib/fonts';
-import Footer from '@/components/footer';
+import { ThemeProvider } from '@/components/theme-provider';
+import { THEMES } from '@/lib/themes';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,13 +15,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeValues = THEMES.map((item) => item.value);
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${fonts.workSans.className} antialiased`}>
-        <div className="flex min-h-screen flex-col">
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="default" themes={themeValues} enableSystem>
+          <div className="flex min-h-screen flex-col">
+            <main className="flex-grow">{children}</main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

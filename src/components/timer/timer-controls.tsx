@@ -23,7 +23,6 @@ const TimerControls: React.FC<TimerControlsProps> = ({
   const renderControls = () => {
     switch (status) {
       case 'inactive':
-      case 'complete':
         return (
           <Button onClick={startTimer}>
             <Timer />

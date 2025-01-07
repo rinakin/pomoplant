@@ -1,5 +1,7 @@
 import React from 'react';
 import AppNavbar from '@/components/app-navbar';
+import Footer from '@/components/footer';
+import AppFooter from '@/components/app-footer';
 
 const MainLayout = ({
   children,
@@ -7,10 +9,13 @@ const MainLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div>
+    <main className="w-full">
       <AppNavbar />
-      {children}
-    </div>
+      <div className="flex min-h-screen flex-col">
+        <main className="flex-grow">{children}</main>
+        <AppFooter />
+      </div>
+    </main>
   );
 };
 

@@ -8,6 +8,7 @@ interface SessionState {
   activeSessionIndex: number;
   setActiveSession: () => void;
   markSessionCompleted: () => void;
+  updateSessions: (data: Session[]) => void;
   resetSessions: () => void;
 }
 
@@ -43,6 +44,9 @@ const useSessionStore = create<SessionState>()((set, get) => ({
       completed: false,
     }));
     set(() => ({ sessions: updatedSessions, activeSessionIndex: 0, allSessionsCompleted: false }));
+  },
+  updateSessions: (data) => {
+    set(() => ({ sessions: data }));
   },
 }));
 

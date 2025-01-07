@@ -1,13 +1,15 @@
 import { create } from 'zustand';
 
-import { Time, TimerPhase, TimerStatus, TimerData } from '@/types';
+import { TimerPhase, TimerStatus, TimerData } from '@/types';
 import { DEFAULT_FOCUS_TIME } from '@/lib/timeConfig';
 import useSessionStore from '@/stores/session-store';
 
 interface TimerState {
-  time: Time;
+  minutes: number;
+  seconds: number;
   timer: NodeJS.Timeout | null;
-  initialTime: Time;
+  initialMinutes: number;
+  initialSeconds: number;
   status: TimerStatus;
   phase: TimerPhase;
   updateTimeData: (data: TimerData) => void;
@@ -21,13 +23,22 @@ const clearExistingTimer = (timer: NodeJS.Timeout | null) => {
 };
 
 const useTimerStore = create<TimerState>()((set, get) => ({
-  time: DEFAULT_FOCUS_TIME,
-  initialTime: DEFAULT_FOCUS_TIME,
+  minutes: DEFAULT_FOCUS_TIME.minutes,
+  seconds: DEFAULT_FOCUS_TIME.seconds,
+  initialMinutes: DEFAULT_FOCUS_TIME.minutes,
+  initialSeconds: DEFAULT_FOCUS_TIME.seconds,
   phase: 'focus',
   timer: null,
   status: 'inactive',
   updateTimeData: (data: TimerData) => {
-    set(() => ({ time: data.time, initialTime: data.initialTime, phase: data.phase }));
+    set(() => ({
+      minutes: data.minutes,
+      seconds: data.seconds,
+      initialSeconds: data.initialSeconds,
+      initialMinutes: data.initialMinutes,
+      phase: data.phase,
+      status: data.status,
+    }));
   },
   startTimer: () => {
     const { status, timer } = get();
@@ -36,12 +47,13 @@ const useTimerStore = create<TimerState>()((set, get) => ({
     clearExistingTimer(timer);
     const newTimer = setInterval(() => {
       set((state) => {
-        const { minutes, seconds } = state.time;
-        if (seconds > 0) return { time: { minutes, seconds: seconds - 1 } };
-        if (minutes > 0) return { time: { minutes: minutes - 1, seconds: 59 } };
+        const minutes = state.minutes;
+        const seconds = state.seconds;
+        if (seconds > 0) return { minutes, seconds: seconds - 1 };
+        if (minutes > 0) return { minutes: minutes - 1, seconds: 59 };
         clearInterval(newTimer);
         useSessionStore.getState().markSessionCompleted();
-        return { time: { minutes: 0, seconds: 0 }, status: 'complete' };
+        return { minutes: 0, seconds: 0, status: 'complete' };
       });
     }, 1000);
     set(() => ({ timer: newTimer }));
@@ -54,7 +66,14 @@ const useTimerStore = create<TimerState>()((set, get) => ({
   resetTimer: () => {
     const currentTimer = get().timer;
     clearExistingTimer(currentTimer);
-    set((state) => ({ time: state.initialTime, status: 'inactive', timer: null }));
+    console.log(`reset`);
+    console.log(get().initialMinutes);
+    set((state) => ({
+      seconds: state.initialSeconds | 0,
+      minutes: state.initialMinutes | 0,
+      status: 'inactive',
+      timer: null,
+    }));
   },
 }));
 

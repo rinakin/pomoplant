@@ -6,10 +6,10 @@ import fonts from '@/lib/fonts';
 import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import TimerControls from '@/components/timer/timer-controls';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card';
+import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
 
 const TimerDisplay = () => {
-  const { time, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
+  const { minutes, seconds, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
     useTimerStore();
   const { sessions, activeSessionIndex, setActiveSession, allSessionsCompleted, resetSessions } =
     useSessionStore();
@@ -24,12 +24,15 @@ const TimerDisplay = () => {
   useEffect(() => {
     if (activeSession) {
       updateTimeData({
-        time: activeSession.time,
+        minutes: activeSession.minutes,
+        seconds: activeSession.seconds,
         phase: activeSession.phase,
-        initialTime: activeSession.time,
+        initialMinutes: activeSession.minutes,
+        initialSeconds: activeSession.seconds,
+        status: 'inactive',
       });
     }
-  }, [activeSession?.time, activeSession?.phase]);
+  }, [activeSession]);
 
   return (
     <div className="w-full">
@@ -41,7 +44,9 @@ const TimerDisplay = () => {
               <div
                 className={`text-5xl font-bold text-timer-foreground ${fonts.robotoMono.className} min-[450px]:text-6xl lg:text-7xl`}
               >
-                {`${time.minutes.toString().padStart(2, '0')}:${time.seconds.toString().padStart(2, '0')}`}
+                {!allSessionsCompleted
+                  ? `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+                  : '00:00'}
               </div>
             </div>
             <TimerControls

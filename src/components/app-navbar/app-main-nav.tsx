@@ -1,16 +1,14 @@
 'use client';
-import { Palette, Settings } from 'lucide-react';
-
 import React from 'react';
-import { Button } from '../ui/button';
+
+import { Button } from '@/components/ui/button';
+import AppSettings from '@/components/app-settings/app-settings';
 
 const AppMainNav = () => {
   return (
-    <div className="flex flex-row gap-2">
+    <div className="flex flex-row items-center gap-2">
       <Button variant={'ghost'}>How it works</Button>
-      <Button className="rounded-lg">
-        <Settings />
-      </Button>
+      <AppSettings />
     </div>
   );
 };

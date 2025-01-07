@@ -22,8 +22,8 @@ const Hero: React.FC = () => {
               Maximize Your Productivity with Timed Focus.
             </h1>
             <div className="mb-4 flex flex-row items-center justify-center gap-6 md:justify-start">
-              <Leaf size={32} fill="#2f7b5d" />
-              <Leaf size={32} fill="#2f7b5d" />
+              <Leaf size={32} className={'stroke-[#274754]'} fill="#2f7b5d" />
+              <Leaf size={32} className={'stroke-[#274754]'} fill="#2f7b5d" />
             </div>
             <p className="text-gray-700">
               Boost your productivity by working in focused intervals with the Pomodoro Technique.
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
               <Link href={'/focus'} className="w-full md:w-48">
                 <Button
                   size={'lg'}
-                  className="flex w-full items-center gap-2"
+                  className="flex w-full items-center gap-2 bg-[#274754] text-white hover:bg-[#274754]/80"
                   aria-label="Start a focus session"
                 >
                   <AlarmClock />
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                 <Button
                   size={'lg'}
                   variant={'secondary'}
-                  className="w-full border-[2px] border-primary bg-[#f7f9ec] text-gray-700 hover:bg-[#e2e6d7]"
+                  className="w-full border-[2px] border-[#274754] bg-[#f7f9ec] text-gray-700 hover:bg-[#e2e6d7]"
                   aria-label="Learn how the Pomodoro technique works"
                 >
                   How it works
