@@ -3,7 +3,6 @@
 import React from 'react';
 import TimerDisplay from '@/components/timer/timer-display';
 import TimerRoadmap from '@/components/timer/timer-roadmap';
-import TimerControls from '@/components/timer/timer-controls';
 
 const TimerContainer = () => {
   return (

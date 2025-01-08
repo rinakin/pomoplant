@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from '../ui/container';
 import { Input } from '../ui/input';
-import { Card, CardContent } from '../ui/card';
 const TasksContainer = () => {
   return (
     <section>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Settings } from 'lucide-react';
 
+import ChangeTheme from './change-theme';
+import SessionSettings from './session-settings';
 import {
   Dialog,
   DialogContent,
@@ -10,10 +11,12 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 
-import ChangeTheme from './change-theme';
-import SessionSettings from './session-settings';
+interface AppSettingsProps {
+  trigger: React.ReactNode;
+  type: 'full' | 'session-only'; // 'full' for settings, 'session-only' for adding sessions
+}
 
-const AppSettings = () => {
+const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDialogClose = () => {
@@ -22,15 +25,15 @@ const AppSettings = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger>
-        <Settings />
-      </DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="max-h-screen overflow-y-auto sm:max-w-3xl">
         <DialogHeader>
-          <DialogTitle className="flex flex-row items-center gap-2">App Settings</DialogTitle>
+          <DialogTitle className="flex flex-row items-center gap-2">
+            {type === 'full' ? 'App Settings' : 'Add Sessions'}
+          </DialogTitle>
           <DialogDescription />
         </DialogHeader>
-        <ChangeTheme />
+        {type == 'full' && <ChangeTheme />}
         <SessionSettings onSave={handleDialogClose} />
       </DialogContent>
     </Dialog>

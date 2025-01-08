@@ -66,8 +66,6 @@ const useTimerStore = create<TimerState>()((set, get) => ({
   resetTimer: () => {
     const currentTimer = get().timer;
     clearExistingTimer(currentTimer);
-    console.log(`reset`);
-    console.log(get().initialMinutes);
     set((state) => ({
       seconds: state.initialSeconds | 0,
       minutes: state.initialMinutes | 0,

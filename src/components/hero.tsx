@@ -3,8 +3,9 @@ import React from 'react';
 import { AlarmClock, Leaf } from 'lucide-react';
 import Link from 'next/link';
 
-import Container from '@/components/ui/container';
 import LottiePlayer from '@/components/ui/lottie-player';
+import LottieAnimation from '@/assets/lottie/stopwatch-lottie.json';
+import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 
 const Hero: React.FC = () => {
@@ -14,7 +15,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col items-center justify-center md:flex-row md:justify-between">
           <LottiePlayer
             aria-label="A stopwatch animation illustrating productivity with the Pomodoro Technique"
-            animationData={require('@/assets/lottie/stopwatch-lottie.json')}
+            animationData={LottieAnimation}
             className="md:order-2 md:max-w-[525px]"
           />
           <div className="text-center md:order-1 md:text-start">

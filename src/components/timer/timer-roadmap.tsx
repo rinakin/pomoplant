@@ -8,12 +8,10 @@ import RoadmapProgress from './roadmap-progress';
 const TimerRoadmap = () => {
   const { sessions, activeSessionIndex } = useSessionStore();
 
-  console.log(sessions);
-
   return (
     <div>
       <Container>
-        <div className="flex flex-row items-center justify-center rounded-xl bg-muted p-2 py-4 shadow min-[440px]:p-4">
+        <div className="flex h-[70px] flex-row items-center justify-center rounded-xl bg-muted p-2 shadow min-[440px]:p-4">
           {sessions.map((item, index) => (
             <React.Fragment key={index}>
               <RoadmapIcon

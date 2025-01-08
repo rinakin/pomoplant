@@ -1,15 +1,36 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import TimerContainer from '@/components/timer/timer-container';
 import TasksContainer from '@/components/tasks/tasks-container';
-import { useTheme } from 'next-themes';
-
+import useSessionStore from '@/stores/session-store';
+import Container from '@/components/ui/container';
+import LoadingSpinner from '@/components/ui/loading';
 const FocusPage = () => {
-  const { setTheme } = useTheme();
+  // Check if store is hydrated (from localStorage)
+  const [hydrated, setHydrated] = useState(false);
+
   useEffect(() => {
-    setTheme('default');
+    // Check if hydration is already complete
+    if (useSessionStore.persist.hasHydrated()) {
+      setHydrated(true);
+    } else {
+      // Listen for hydration event if there are delays
+      const unsubscribe = useSessionStore.persist.onHydrate(() => {
+        setHydrated(true);
+      });
+      // Clean up function
+      return () => unsubscribe();
+    }
   }, []);
+
+  if (!hydrated) {
+    return (
+      <Container>
+        <LoadingSpinner size="lg" />
+      </Container>
+    );
+  }
   return (
     <section className="space-y-4 py-4">
       <TimerContainer />

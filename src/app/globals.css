@@ -111,7 +111,7 @@ body {
     --destructive: 0 80% 80%;
     --destructive-foreground: 0 80% 10%;
     --border: 60 30% 85%;
-    --input: 60 30% 85%;
+    --input: 60 30% 75%;
     --ring: 350 80% 80%;
     --radius: 0.5rem;
     --chart-1: 350 80% 80%;
@@ -119,7 +119,7 @@ body {
     --chart-3: 270 70% 80%;
     --chart-4: 120 60% 80%;
     --chart-5: 30 80% 80%;
-    --timer: 350 100% 98%;
+    --timer: 60 30% 97%;
     --timer-foreground: 350 80% 10%;
   }
 
@@ -141,7 +141,7 @@ body {
     --destructive: 0 80% 70%;
     --destructive-foreground: 0 80% 10%;
     --border: 270 30% 30%;
-    --input: 270 30% 30%;
+    --input: 270 30% 50%;
     --ring: 350 80% 70%;
     --radius: 0.5rem;
     --chart-1: 350 80% 70%;

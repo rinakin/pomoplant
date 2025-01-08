@@ -39,7 +39,7 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
   });
   const { control } = form;
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, append, remove, replace } = useFieldArray({
     control,
     name: 'sessions',
   });
@@ -50,7 +50,7 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
     }
   };
   const onDefaultSession = () => {
-    form.reset({ sessions: DEFAULT_POMODORO_CYCLE });
+    replace(DEFAULT_POMODORO_CYCLE);
   };
 
   const onAddSession = () => {
@@ -71,14 +71,9 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
     <div className="space-y-4">
       <SettingsHeader title="Customize Sessions" />
       {/* Mode selection buttons */}
-      <div className="mt-2 flex flex-row items-center justify-start gap-3 sm:gap-6">
-        <Button variant={'outline'} onClick={onDefaultSession} className="px-2 sm:px-3">
-          Default Pomodoro
-        </Button>
-        <Button variant={'destructive'} onClick={onClearSession} className="px-2 sm:px-3">
-          Clear Sessions
-        </Button>
-      </div>
+      <Button variant={'outline'} onClick={onDefaultSession} className="px-2 sm:px-3">
+        Default Pomodoro
+      </Button>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -153,17 +148,29 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
               );
             })}
           </div>
-          <div className="mt-4 flex items-center justify-between gap-4">
-            <Button
-              type="button"
-              variant={'secondary'}
-              onClick={onAddSession}
-              disabled={fields.length >= 6}
-            >
-              <Plus />
-              Add Session
+          <div className="mt-4 flex flex-col justify-between gap-6 sm:flex-row sm:gap-4">
+            <div className="flex flex-row items-center gap-4">
+              <Button
+                type="button"
+                variant={'secondary'}
+                onClick={onAddSession}
+                disabled={fields.length >= 6}
+              >
+                <Plus />
+                Add Session
+              </Button>
+              <Button
+                variant={'destructive'}
+                type="button"
+                onClick={onClearSession}
+                className="px-2 sm:px-3"
+              >
+                Clear Sessions
+              </Button>
+            </div>
+            <Button type="submit" disabled={!form.formState.isDirty}>
+              Update
             </Button>
-            <Button type="submit">Update</Button>
           </div>
           <span className="mt-4 flex justify-center text-xs sm:justify-end">
             *Active sessions will reset on update.

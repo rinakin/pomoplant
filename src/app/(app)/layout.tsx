@@ -1,6 +1,5 @@
 import React from 'react';
 import AppNavbar from '@/components/app-navbar';
-import Footer from '@/components/footer';
 import AppFooter from '@/components/app-footer';
 
 const MainLayout = ({

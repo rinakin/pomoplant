@@ -25,3 +25,5 @@ export const THEMES: ThemeTypes[] = [
     value: 'cottonCandyDark',
   },
 ];
+
+export const themeValues = THEMES.map((item) => item.value);
