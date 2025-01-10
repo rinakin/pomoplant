@@ -8,25 +8,25 @@ body {
 
 @layer base {
   :root {
-    --background: 69 51% 92%;
-    --foreground: 218, 17%, 35%;
-    --card: 65 20% 75%;
+    --background: 70 45% 92%;
+    --foreground: 218 17% 35%;
+    --card: 60 20% 80%;
     --card-foreground: 85 25% 30%;
-    --popover: 68 48% 94%;
+    --popover: 68 40% 94%;
     --popover-foreground: 111 6% 50%;
     --primary: 197 37% 24%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 30 20% 50%;
+    --secondary: 35 20% 50%;
     --secondary-foreground: 210 20% 98%;
     --accent: 85 20% 60%;
     --accent-foreground: 220 20% 20%;
     --input: 55 20% 65%;
     --ring: 40 20% 60%;
-    --muted: 85 20% 80%;
-    --muted-foreground: 218, 17%, 35%;
-    --destructive: 0 40% 56%;
+    --muted: 80 15% 75%;
+    --muted-foreground: 218 17% 35%;
+    --destructive: 0 50% 45%;
     --destructive-foreground: 0 100% 100%;
-    --border: 85 20% 80%;
+    --border: 55 20% 65%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -34,7 +34,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --timer: 68 48% 94%;
-    --timer-foreground: 111 6% 50%;
+    --timer-foreground: 111 6% 60%;
   }
   .slate {
     --background: 0 0% 100%;
@@ -62,7 +62,7 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --timer: 0 0% 98%;
+    --timer: 0 0% 100%;
     --timer-foreground: 224 71.4% 4.1%;
   }
   .slateDark {
@@ -109,7 +109,7 @@ body {
     --accent: 270 70% 80%;
     --accent-foreground: 270 70% 10%;
     --destructive: 0 80% 80%;
-    --destructive-foreground: 0 80% 10%;
+    --destructive-foreground: 0 80% 20%;
     --border: 60 30% 85%;
     --input: 60 30% 75%;
     --ring: 350 80% 80%;

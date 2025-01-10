@@ -6,9 +6,9 @@ import fonts from '@/lib/fonts';
 import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import TimerControls from '@/components/timer/timer-controls';
-import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
-import AppSettings from '../app-settings/app-settings';
-import { Button } from '../ui/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import AppSettings from '@/components/app-settings/app-settings';
+import { Button } from '@/components/ui/button';
 
 const TimerDisplay = () => {
   const { minutes, seconds, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =

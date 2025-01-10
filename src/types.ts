@@ -19,3 +19,10 @@ export type TimerData = {
   initialMinutes: number;
   status: TimerStatus;
 };
+
+export type Task = {
+  name: string;
+  note?: string;
+  completed: boolean;
+  id: string;
+};

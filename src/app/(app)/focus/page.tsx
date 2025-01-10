@@ -32,7 +32,7 @@ const FocusPage = () => {
     );
   }
   return (
-    <section className="space-y-4 py-4">
+    <section className="space-y-14 pb-24 pt-4">
       <TimerContainer />
       <TasksContainer />
     </section>

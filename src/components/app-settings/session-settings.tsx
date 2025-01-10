@@ -168,12 +168,13 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
                 Clear Sessions
               </Button>
             </div>
+
             <Button type="submit" disabled={!form.formState.isDirty}>
               Update
             </Button>
           </div>
           <span className="mt-4 flex justify-center text-xs sm:justify-end">
-            *Active sessions will reset on update.
+            *Updating will reset active sessions and current progress.
           </span>
         </form>
       </Form>

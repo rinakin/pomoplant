@@ -13,11 +13,16 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-const ChangeTheme = () => {
+interface ChangeThemeProps {
+  handleDialogClose: () => void;
+}
+
+const ChangeTheme: React.FC<ChangeThemeProps> = ({ handleDialogClose }) => {
   const { theme, setTheme } = useTheme();
 
   const onClick = (theme: string) => {
     setTheme(() => theme);
+    handleDialogClose();
   };
   return (
     <div className="flex flex-row items-center gap-4">

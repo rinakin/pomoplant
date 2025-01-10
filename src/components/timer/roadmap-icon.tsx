@@ -17,9 +17,9 @@ const RoadmapIcon: React.FC<RoadmapIconProps> = ({ phase, completed, isActive })
   return (
     <>
       <Button
-        size={'lg'}
+        size={'default'}
         className={cn(
-          `flex aspect-square cursor-pointer rounded-full border-[2px] border-primary bg-muted p-2 text-muted-foreground transition-all duration-200 [&_svg]:h-[18px] [&_svg]:w-[18px]`,
+          `flex aspect-square h-8 w-8 cursor-pointer rounded-full border-[2px] border-primary bg-muted p-2 text-muted-foreground transition-all duration-200 min-[440px]:h-10 min-[440px]:w-10 [&_svg]:h-[16px] [&_svg]:w-[16px] min-[440px]:[&_svg]:h-[20px] min-[440px]:[&_svg]:w-[20px]`,
           {
             'scale-110 border-primary bg-timer text-timer-foreground': isActive,
             'border-primary bg-primary text-primary-foreground': completed,

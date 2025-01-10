@@ -33,7 +33,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
           </DialogTitle>
           <DialogDescription />
         </DialogHeader>
-        {type == 'full' && <ChangeTheme />}
+        {type == 'full' && <ChangeTheme handleDialogClose={handleDialogClose} />}
         <SessionSettings onSave={handleDialogClose} />
       </DialogContent>
     </Dialog>
