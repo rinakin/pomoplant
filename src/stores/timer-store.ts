@@ -41,21 +41,34 @@ const useTimerStore = create<TimerState>()((set, get) => ({
     }));
   },
   startTimer: () => {
-    const { status, timer } = get();
+    const { status, timer, minutes, seconds } = get();
     if (status === 'active') return;
+
     set({ status: 'active' });
     clearExistingTimer(timer);
+
+    const timeStart = Date.now(); // Get time user starts timer
+    const totalSeconds = minutes * 60 + seconds; // Convert input time to seconds
+
     const newTimer = setInterval(() => {
-      set((state) => {
-        const minutes = state.minutes;
-        const seconds = state.seconds;
-        if (seconds > 0) return { minutes, seconds: seconds - 1 };
-        if (minutes > 0) return { minutes: minutes - 1, seconds: 59 };
+      const elapsedTime = Math.floor((Date.now() - timeStart) / 1000); // Elapsed time in seconds (counts up)
+      const remainingTime = totalSeconds - elapsedTime; // Remaining time left until completion
+
+      if (remainingTime <= 0) {
         clearInterval(newTimer);
         useSessionStore.getState().markSessionCompleted();
-        return { minutes: 0, seconds: 0, status: 'complete' };
-      });
-    }, 1000);
+        set({ minutes: 0, seconds: 0, status: 'complete', timer: null });
+      } else {
+        const remainingMinutes = Math.floor(remainingTime / 60); // Convert to minutes
+        const remainingSeconds = remainingTime % 60; // Convert to seconds
+
+        set({
+          minutes: remainingMinutes,
+          seconds: remainingSeconds,
+        });
+      }
+    }, 1000); // Update every second
+
     set(() => ({ timer: newTimer }));
   },
   pauseTimer: () => {
