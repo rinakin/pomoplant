@@ -5,8 +5,10 @@ import useSessionStore from '@/stores/session-store';
 import { cn } from '@/lib/utils';
 
 interface AnimatedProgressProps extends LottieComponentProps {
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   animationData: any;
 }
+
 const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...lottieProps }) => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const { status, elapsedTime } = useTimerStore();
@@ -61,12 +63,12 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...l
     } else {
       lottieRef.current.play();
     }
-  }, [elapsedTime, status]);
+  }, [elapsedTime, status, updateInitialFrame]);
 
   // Update animation frame and speed when transitioning to a new session
   useEffect(() => {
     updateInitialFrame();
-  }, [activeSessionIndex]);
+  }, [activeSessionIndex, updateInitialFrame]);
 
   return (
     <div>
