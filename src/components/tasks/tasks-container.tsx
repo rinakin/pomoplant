@@ -7,9 +7,10 @@ import useTasksStore from '@/stores/tasks-store';
 
 import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
+import ConfirmationDialog from '@/components/ui/confirmation-dialog';
 import TaskList from './task-list';
 import AddTaskForm from './add-task-form';
-import ConfirmationDialog from '@/components/ui/confirmation-dialog';
+
 const TasksContainer = () => {
   const [showTaskForm, setShowTaskForm] = useState(false);
   const { tasks, clearTasks } = useTasksStore();
@@ -24,7 +25,7 @@ const TasksContainer = () => {
           <div className="flex flex-col gap-6 py-6">
             <TaskList tasks={tasks} />
             {!showTaskForm && (
-              <div className="flex flex-col justify-end gap-6 md:flex-row">
+              <div className="flex flex-col justify-end gap-4 md:flex-row">
                 <Button className="md:order-2" onClick={() => setShowTaskForm(true)}>
                   <Plus /> Add Task
                 </Button>

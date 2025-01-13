@@ -16,9 +16,9 @@ interface TaskItemProps {
 }
 const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
   const { updateTask, removeTask } = useTasksStore();
-
   const { name, completed, note } = task;
 
+  // Toggle between task completion state when use clicks on checkbox
   const onCheckChange = (checked: CheckedState) => {
     if (!checked) {
       updateTask({ ...task, completed: false });

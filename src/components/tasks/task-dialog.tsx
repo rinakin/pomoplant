@@ -27,7 +27,7 @@ interface TaskDialogProps {
 }
 const TaskDialog: React.FC<TaskDialogProps> = ({ task, trigger, updateTask, removeTask }) => {
   const { name, note } = task;
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false); // track whether dialog is in edit mode
   const [updateName, setUpdateName] = useState(name);
   const [updateNote, setUpdateNote] = useState(note);
 
@@ -46,6 +46,7 @@ const TaskDialog: React.FC<TaskDialogProps> = ({ task, trigger, updateTask, remo
     removeTask(task.id);
   };
 
+  // Reset the task dialog state (i.e when closing the edit form or dialog to restore original task details)
   const resetDialog = () => {
     setIsEditing(false);
     setUpdateName(name);

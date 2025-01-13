@@ -11,6 +11,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 
+import { cn } from '@/lib/utils';
+import { Session } from '@/types';
+import useTimerStore from '@/stores/timer-store';
+
+import SettingsHeader from './settings-header';
+import SessionHeader from './session-header';
 import {
   Form,
   FormField,
@@ -19,13 +25,6 @@ import {
   FormMessage,
   FormItem,
 } from '@/components/ui/form';
-
-import SettingsHeader from './settings-header';
-import SessionHeader from './session-header';
-import { cn } from '@/lib/utils';
-import { Session } from '@/types';
-import useTimerStore from '@/stores/timer-store';
-
 interface SessionSettingsProps {
   onSave: () => void;
 }
@@ -54,7 +53,7 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
   };
 
   const onAddSession = () => {
-    append({ minutes: 5, seconds: 0, phase: 'break' });
+    append({ minutes: 0, seconds: 0, phase: 'break' });
   };
 
   const onSubmit = (values: TSessionsFormSchema) => {

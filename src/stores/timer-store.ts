@@ -8,6 +8,7 @@ interface TimerState {
   minutes: number;
   seconds: number;
   timer: NodeJS.Timeout | null;
+  elapsedTime: number;
   initialMinutes: number;
   initialSeconds: number;
   status: TimerStatus;
@@ -29,6 +30,7 @@ const useTimerStore = create<TimerState>()((set, get) => ({
   initialSeconds: DEFAULT_FOCUS_TIME.seconds,
   phase: 'focus',
   timer: null,
+  elapsedTime: 0,
   status: 'inactive',
   updateTimeData: (data: TimerData) => {
     set(() => ({
@@ -63,6 +65,7 @@ const useTimerStore = create<TimerState>()((set, get) => ({
         const remainingSeconds = remainingTime % 60; // Convert to seconds
 
         set({
+          elapsedTime,
           minutes: remainingMinutes,
           seconds: remainingSeconds,
         });
@@ -82,6 +85,7 @@ const useTimerStore = create<TimerState>()((set, get) => ({
     set((state) => ({
       seconds: state.initialSeconds | 0,
       minutes: state.initialMinutes | 0,
+      elapsedTime: 0,
       status: 'inactive',
       timer: null,
     }));

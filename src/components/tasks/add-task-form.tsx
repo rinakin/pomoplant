@@ -14,7 +14,7 @@ interface AddTaskFormProps {
 
 const AddTaskForm: React.FC<AddTaskFormProps> = ({ hideTaskForm }) => {
   const { addTask } = useTasksStore();
-  const [showAddNote, setShowAddNote] = useState(false);
+  const [showAddNote, setShowAddNote] = useState(false); // toggle visibility of the note input field
   const [taskName, setTaskName] = useState('');
   const [taskNote, setTaskNote] = useState('');
 

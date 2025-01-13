@@ -1,7 +1,8 @@
 import React from 'react';
-import Container from '@/components/ui/container';
 
 import useSessionStore from '@/stores/session-store';
+
+import Container from '@/components/ui/container';
 import RoadmapIcon from './roadmap-icon';
 import RoadmapProgress from './roadmap-progress';
 
@@ -18,6 +19,7 @@ const TimerRoadmap = () => {
                 phase={item.phase}
                 completed={item.completed}
                 isActive={index === activeSessionIndex}
+                aria-label={`Session ${index + 1} - Phase: ${item.phase} - ${item.completed}% completed`}
               />
               {index !== sessions.length - 1 && <RoadmapProgress completed={item.completed} />}
             </React.Fragment>

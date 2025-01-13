@@ -24,6 +24,7 @@ const ChangeTheme: React.FC<ChangeThemeProps> = ({ handleDialogClose }) => {
     setTheme(() => theme);
     handleDialogClose();
   };
+
   return (
     <div className="flex flex-row items-center gap-4">
       <SettingsHeader title="Theme:" />

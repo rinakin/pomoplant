@@ -1,30 +1,33 @@
 'use client';
-
 import React, { useEffect } from 'react';
-import Container from '@/components/ui/container';
+
 import fonts from '@/lib/fonts';
-import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
-import TimerControls from '@/components/timer/timer-controls';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import AppSettings from '@/components/app-settings/app-settings';
-import { Button } from '@/components/ui/button';
+import useTimerStore from '@/stores/timer-store';
 import PlantAnimation from '@/assets/lottie/plant-progress-lottie.json';
-import AnimatedProgress from '../animated-progress';
+
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Container from '@/components/ui/container';
+import TimerControls from '@/components/timer/timer-controls';
+import AppSettings from '@/components/app-settings/app-settings';
+import AnimatedProgress from '@/components/animated-progress';
 
 const TimerDisplay = () => {
   const { minutes, seconds, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
     useTimerStore();
-
   const { sessions, activeSessionIndex, setActiveSession, allSessionsCompleted, resetSessions } =
     useSessionStore();
   const activeSession = sessions[activeSessionIndex];
+
+  // Update active session when the timer completes
   useEffect(() => {
     if (status === 'complete') {
-      setActiveSession();
+      setActiveSession(); // Move to the next session when complete
     }
   }, [status, setActiveSession]);
 
+  // Update timer data when a new active session is selected
   useEffect(() => {
     if (activeSession) {
       updateTimeData({

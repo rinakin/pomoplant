@@ -1,7 +1,9 @@
 import React from 'react';
 import { Timer, Pause, TimerReset, Play } from 'lucide-react';
-import { Button } from '../ui/button';
+
 import { TimerStatus } from '@/types';
+
+import { Button } from '@/components/ui/button';
 
 interface TimerControlsProps {
   startTimer: () => void;

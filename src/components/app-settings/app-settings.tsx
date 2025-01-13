@@ -17,7 +17,7 @@ interface AppSettingsProps {
 }
 
 const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // state to control visibility of dialog
 
   const handleDialogClose = () => {
     setIsOpen(false);
