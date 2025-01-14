@@ -4,8 +4,10 @@ import { Timer, Pause, TimerReset, Play } from 'lucide-react';
 import { TimerStatus } from '@/types';
 
 import { Button } from '@/components/ui/button';
+import { capitalizeFirstLetter } from '@/lib/utils';
 
 interface TimerControlsProps {
+  phase: string;
   startTimer: () => void;
   pauseTimer: () => void;
   resetTimer: () => void;
@@ -15,6 +17,7 @@ interface TimerControlsProps {
 }
 
 const TimerControls: React.FC<TimerControlsProps> = ({
+  phase,
   startTimer,
   pauseTimer,
   resetTimer,
@@ -28,7 +31,7 @@ const TimerControls: React.FC<TimerControlsProps> = ({
         return (
           <Button onClick={startTimer}>
             <Timer />
-            Start Timer
+            {`Start ${capitalizeFirstLetter(phase)} Timer`}
           </Button>
         );
       case 'active':

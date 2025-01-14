@@ -66,6 +66,7 @@ const TimerDisplay = () => {
 
                   {/* Timer Controls */}
                   <TimerControls
+                    phase={phase}
                     startTimer={startTimer}
                     pauseTimer={pauseTimer}
                     resetTimer={resetTimer}
