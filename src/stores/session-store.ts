@@ -22,11 +22,7 @@ const useSessionStore = create<SessionState>()(
       allSessionsCompleted: false,
       setActiveSession: () => {
         const { sessions, activeSessionIndex } = get();
-        if (activeSessionIndex === sessions.length - 1) {
-          const allCompleted = sessions.every((item) => item.completed);
-          if (allCompleted) set(() => ({ allSessionsCompleted: true }));
-          return;
-        } else {
+        if (activeSessionIndex < sessions.length - 1) {
           set(() => ({
             activeSessionIndex: activeSessionIndex + 1,
           }));
@@ -39,7 +35,8 @@ const useSessionStore = create<SessionState>()(
           ...updatedSessions[activeSessionIndex],
           completed: true,
         };
-        set(() => ({ sessions: updatedSessions }));
+        const allCompleted = updatedSessions.every((item) => item.completed);
+        set(() => ({ sessions: updatedSessions, allSessionsCompleted: allCompleted }));
       },
       resetSessions: () => {
         const { sessions } = get();

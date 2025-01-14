@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useMemo, useCallback } from 'react';
-import Lottie, { LottieRefCurrentProps, LottieComponentProps } from 'lottie-react';
+import Lottie, { LottieRefCurrentProps, LottieComponentProps, LottieRef } from 'lottie-react';
 import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import { cn } from '@/lib/utils';
@@ -12,7 +12,7 @@ interface AnimatedProgressProps extends LottieComponentProps {
 const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...lottieProps }) => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const { status, elapsedTime } = useTimerStore();
-  const { sessions, activeSessionIndex } = useSessionStore();
+  const { sessions, activeSessionIndex, allSessionsCompleted } = useSessionStore();
 
   // Calculate the total duration (in seconds) of all sessions combined
   const totalTime = useMemo(() => {
@@ -30,11 +30,17 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...l
   // Sync the animation's frame and speed with the current session's progress
   const updateInitialFrame = useCallback(() => {
     if (!lottieRef.current || !sessions.length || activeSessionIndex >= sessions.length) return;
-
-    const totalFrames = lottieRef.current.getDuration(true);
+    let totalFrames = lottieRef.current.getDuration(true);
     const animationDuration = lottieRef.current.getDuration(false);
     const currentSession = sessions[activeSessionIndex];
     if (!totalFrames || !animationDuration || !currentSession) return;
+    totalFrames = totalFrames - 1; // Align with 0-based frame indexing for accuracy
+
+    // // Handle the case where all sessions are completed to ensure animation is complete
+    if (allSessionsCompleted) {
+      lottieRef.current.goToAndStop(totalFrames, true); // Stay at the last frame
+      return;
+    }
 
     // Ensure the animation speed matches the session timer duration
     const fps = totalFrames / animationDuration;
