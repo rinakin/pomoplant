@@ -10,6 +10,7 @@ import {
   DialogTrigger,
   DialogDescription,
 } from '@/components/ui/dialog';
+import ChangeAlarm from './change-alarm';
 
 interface AppSettingsProps {
   trigger: React.ReactNode;
@@ -33,7 +34,12 @@ const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
           </DialogTitle>
           <DialogDescription />
         </DialogHeader>
-        {type == 'full' && <ChangeTheme handleDialogClose={handleDialogClose} />}
+        {type == 'full' && (
+          <>
+            <ChangeTheme handleDialogClose={handleDialogClose} />
+            <ChangeAlarm />
+          </>
+        )}
         <SessionSettings onSave={handleDialogClose} />
       </DialogContent>
     </Dialog>

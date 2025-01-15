@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { nanoid } from 'nanoid';
 
-import { Task } from '@/types';
+import { Task } from '@/types/types';
 
 interface TaskState {
   tasks: Task[];

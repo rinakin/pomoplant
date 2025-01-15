@@ -1,7 +1,7 @@
 import React from 'react';
 import { Timer, Pause, TimerReset, Play } from 'lucide-react';
 
-import { TimerStatus } from '@/types';
+import { TimerStatus } from '@/types/types';
 
 import { Button } from '@/components/ui/button';
 import { capitalizeFirstLetter } from '@/lib/utils';

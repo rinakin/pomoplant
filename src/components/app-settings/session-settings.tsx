@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Switch } from '@/components/ui/switch';
 
 import { cn } from '@/lib/utils';
-import { Session } from '@/types';
+import { Session } from '@/types/types';
 import useTimerStore from '@/stores/timer-store';
 
 import SettingsHeader from './settings-header';

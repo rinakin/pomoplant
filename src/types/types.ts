@@ -26,3 +26,8 @@ export type Task = {
   completed: boolean;
   id: string;
 };
+
+export type Audio = {
+  label: string;
+  value: string;
+};

@@ -12,20 +12,32 @@ import Container from '@/components/ui/container';
 import TimerControls from '@/components/timer/timer-controls';
 import AppSettings from '@/components/app-settings/app-settings';
 import AnimatedProgress from '@/components/animated-progress';
+import useSoundEffect from '@/hooks/use-sound-effect';
 
 const TimerDisplay = () => {
   const { minutes, seconds, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
     useTimerStore();
-  const { sessions, activeSessionIndex, setActiveSession, allSessionsCompleted, resetSessions } =
-    useSessionStore();
+  const {
+    sessions,
+    activeSessionIndex,
+    setActiveSession,
+    allSessionsCompleted,
+    resetSessions,
+    alarm,
+  } = useSessionStore();
   const activeSession = sessions[activeSessionIndex];
-
+  const audio = useSoundEffect({
+    src: alarm?.value || '', // If no alarm, src will be empty
+  });
   // Update active session when the timer completes
   useEffect(() => {
     if (status === 'complete') {
+      if (audio && alarm) {
+        audio.play();
+      }
       setActiveSession(); // Move to the next session when complete
     }
-  }, [status, setActiveSession]);
+  }, [status, setActiveSession, audio, alarm]);
 
   // Update timer data when a new active session is selected
   useEffect(() => {

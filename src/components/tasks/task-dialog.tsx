@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Trash } from 'lucide-react';
 
-import { Task } from '@/types';
+import { Task } from '@/types/types';
 
 import {
   Dialog,

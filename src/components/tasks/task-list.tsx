@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { Task } from '@/types';
+import { Task } from '@/types/types';
 
 import TaskItem from './task-item';
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useMemo, useCallback } from 'react';
-import Lottie, { LottieRefCurrentProps, LottieComponentProps, LottieRef } from 'lottie-react';
+import Lottie, { LottieRefCurrentProps, LottieComponentProps } from 'lottie-react';
 import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import { cn } from '@/lib/utils';
@@ -56,7 +56,7 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...l
 
     lottieRef.current.setSpeed(speed);
     lottieRef.current.goToAndStop(frameToSet, true);
-  }, [lottieRef, sessions, activeSessionIndex, sessionProportions]);
+  }, [lottieRef, sessions, activeSessionIndex, sessionProportions, allSessionsCompleted]);
 
   // Adjust animation state when timer progress or status changes
   useEffect(() => {

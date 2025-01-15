@@ -1,5 +1,5 @@
 import { TSessionsFormSchema } from '@/schemas';
-import { Session } from '@/types';
+import { Session } from '@/types/types';
 
 // Classic time constraints for Pomodoro
 export const DEFAULT_FOCUS_TIME = {

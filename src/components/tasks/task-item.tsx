@@ -4,7 +4,7 @@ import { CheckedState } from '@radix-ui/react-checkbox';
 
 import useTasksStore from '@/stores/tasks-store';
 import { cn } from '@/lib/utils';
-import { Task } from '@/types';
+import { Task } from '@/types/types';
 
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';

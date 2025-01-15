@@ -2,10 +2,13 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 import { DEFAULT_POMODORO_CYCLE } from '@/lib/timeConfig';
-import { Session } from '@/types';
+import { Session, Audio } from '@/types/types';
+import { ALARM_SOUNDS } from '@/lib/audio';
 
 interface SessionState {
   sessions: Session[];
+  alarm: Audio | undefined;
+  setAlarm: (alarm: Audio | undefined) => void;
   allSessionsCompleted: boolean;
   activeSessionIndex: number;
   setActiveSession: () => void;
@@ -20,6 +23,8 @@ const useSessionStore = create<SessionState>()(
       sessions: DEFAULT_POMODORO_CYCLE,
       activeSessionIndex: 0,
       allSessionsCompleted: false,
+      alarm: ALARM_SOUNDS[0],
+      setAlarm: (alarm) => set({ alarm: alarm || undefined }),
       setActiveSession: () => {
         const { sessions, activeSessionIndex } = get();
         if (activeSessionIndex < sessions.length - 1) {

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import { TimerPhase, TimerStatus, TimerData } from '@/types';
+import { TimerPhase, TimerStatus, TimerData } from '@/types/types';
 import { DEFAULT_FOCUS_TIME } from '@/lib/timeConfig';
 import useSessionStore from '@/stores/session-store';
 
