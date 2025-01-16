@@ -8,9 +8,9 @@ interface SoundEffectProps {
 
 const useSoundEffect = ({ src, volume = 0.4, playbackRate = 1 }: SoundEffectProps) => {
   const audio = useRef<HTMLAudioElement | null>(null);
+  if (!src) return;
 
   useEffect(() => {
-    if (!src) return;
     const shouldCreateNewAudio = !audio.current || audio.current.src !== src;
 
     if (shouldCreateNewAudio) {

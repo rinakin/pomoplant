@@ -26,11 +26,7 @@ const TimerDisplay = () => {
     alarm,
   } = useSessionStore();
   const activeSession = sessions[activeSessionIndex];
-  const audio = alarm
-    ? useSoundEffect({
-        src: alarm.value, // If no alarm, src will be empty
-      })
-    : null;
+  const audio = useSoundEffect({ src: alarm ? alarm?.value : '' });
   // Update active session when the timer completes
   useEffect(() => {
     if (status === 'complete') {
