@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import fonts from '@/lib/fonts';
 import useSessionStore from '@/stores/session-store';
 import useTimerStore from '@/stores/timer-store';
-import PlantAnimation from '@/assets/lottie/plant-progress-lottie.json';
+import PlantAnimation from '@/assets/lottie/plant-progress-1.json';
 
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -26,9 +26,11 @@ const TimerDisplay = () => {
     alarm,
   } = useSessionStore();
   const activeSession = sessions[activeSessionIndex];
-  const audio = useSoundEffect({
-    src: alarm?.value || '', // If no alarm, src will be empty
-  });
+  const audio = alarm
+    ? useSoundEffect({
+        src: alarm.value, // If no alarm, src will be empty
+      })
+    : null;
   // Update active session when the timer completes
   useEffect(() => {
     if (status === 'complete') {
@@ -61,7 +63,7 @@ const TimerDisplay = () => {
           <CardContent className="flex w-full flex-col items-center justify-center gap-8">
             {sessions.length !== 0 && (
               <>
-                <div className="absolute bottom-0 z-0 flex items-center justify-center">
+                <div className="absolute inset-0 z-0 flex items-center justify-center">
                   <AnimatedProgress animationData={PlantAnimation} />
                 </div>
 

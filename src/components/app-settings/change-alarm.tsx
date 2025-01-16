@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { ALARM_SOUNDS } from '@/lib/audio';
 
@@ -32,6 +32,16 @@ const ChangeAlarm: React.FC = () => {
     audioRef.current.play();
     audioRef.current.loop = false;
   };
+
+  // Stop audio when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
+  }, []);
 
   const onClick = (value: string) => {
     if (value === 'none') {
