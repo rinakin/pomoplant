@@ -8,15 +8,11 @@ export const PLANT_ANIMATIONS: PlantData[] = [
     name: 'Plant 1',
     animationData: plantProgress1,
     growthEndFrame: 102,
-    completedFrames: [103, 144],
-    totalFrames: 144,
   },
   {
     id: 'plant-2',
     name: 'Plant 2',
     animationData: plantProgress2,
     growthEndFrame: 460,
-    completedFrames: [461, 600],
-    totalFrames: 600,
   },
 ];

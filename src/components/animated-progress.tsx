@@ -36,21 +36,19 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
   // Sync the animation's frame and speed with the current session's progress
   const updateInitialFrame = useCallback(() => {
     if (!lottieRef.current || !sessions.length || activeSessionIndex >= sessions.length) return;
-    let totalFrames = lottieRef.current.getDuration(true);
+    const totalFrames = lottieRef.current.getDuration(true);
+    const endFrame = plantData.growthEndFrame;
     const animationDuration = lottieRef.current.getDuration(false);
     const currentSession = sessions[activeSessionIndex];
     if (!totalFrames || !animationDuration || !currentSession) return;
-    totalFrames = totalFrames - 1; // Align with 0-based frame indexing for accuracy
 
-    // // Handle the case where all sessions are completed to ensure animation is complete
     if (allSessionsCompleted) {
-      lottieRef.current.goToAndStop(totalFrames, true); // Stay at the last frame
+      lottieRef.current.goToAndPlay(endFrame, true);
       return;
     }
-
     // Ensure the animation speed matches the session timer duration
     const fps = totalFrames / animationDuration;
-    const sessionFrames = totalFrames * sessionProportions[activeSessionIndex];
+    const sessionFrames = endFrame * sessionProportions[activeSessionIndex];
     const sessionDuration = currentSession.minutes * 60 + currentSession.seconds;
     const speed = sessionFrames / (sessionDuration * fps);
 
@@ -58,15 +56,23 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
     const completedProgress = sessionProportions
       .slice(0, activeSessionIndex)
       .reduce((acc, percentage) => acc + percentage, 0);
-    const frameToSet = completedProgress * totalFrames;
 
+    const frameToSet = completedProgress * endFrame;
     lottieRef.current.setSpeed(speed);
     lottieRef.current.goToAndStop(frameToSet, true);
-  }, [lottieRef, sessions, activeSessionIndex, sessionProportions, allSessionsCompleted]);
+  }, [
+    lottieRef,
+    sessions,
+    activeSessionIndex,
+    sessionProportions,
+    allSessionsCompleted,
+    plantData.growthEndFrame,
+  ]);
 
   // Adjust animation state when timer progress or status changes
   useEffect(() => {
     if (!lottieRef.current) return;
+    if (allSessionsCompleted) return;
     if (elapsedTime === 0) {
       updateInitialFrame(); // Reset to the starting frame if the timer resets
     }
@@ -75,7 +81,7 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
     } else {
       lottieRef.current.play();
     }
-  }, [elapsedTime, status, updateInitialFrame]);
+  }, [elapsedTime, status, updateInitialFrame, allSessionsCompleted]);
 
   // Update animation frame and speed when transitioning to a new session
   useEffect(() => {

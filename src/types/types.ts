@@ -38,6 +38,4 @@ export type PlantData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationData: any;
   growthEndFrame: number;
-  completedFrames: number[];
-  totalFrames: number;
 };
