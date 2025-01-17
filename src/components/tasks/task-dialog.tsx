@@ -59,7 +59,7 @@ const TaskDialog: React.FC<TaskDialogProps> = ({ task, trigger, updateTask, remo
       <DialogContent className="max-h-screen overflow-y-auto" onCloseAutoFocus={resetDialog}>
         <DialogHeader className={'space-y-2 pt-4 text-start'}>
           <DialogTitle>{isEditing ? 'Edit task' : name}</DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="whitespace-pre-line">
             {isEditing ? 'Edit your task details' : note || 'No notes for this task.'}
           </DialogDescription>
         </DialogHeader>
@@ -78,6 +78,7 @@ const TaskDialog: React.FC<TaskDialogProps> = ({ task, trigger, updateTask, remo
             <div className="space-y-1">
               <Label>Notes</Label>
               <Textarea
+                className="min-h-[80px]"
                 value={updateNote}
                 onChange={(e) => {
                   setUpdateNote(e.target.value);
@@ -97,7 +98,7 @@ const TaskDialog: React.FC<TaskDialogProps> = ({ task, trigger, updateTask, remo
           )}
           {isEditing && (
             <div className="flex w-full flex-row items-center justify-between">
-              <Button variant="outline" onClick={() => setIsEditing(false)}>
+              <Button variant="outline" onClick={resetDialog}>
                 Cancel
               </Button>
               <div className="flex flex-row gap-4">
