@@ -31,7 +31,7 @@ const TimerDisplay = () => {
   // Update active session when the timer completes
   useEffect(() => {
     if (status === 'complete') {
-      if (audio && alarm) {
+      if (audio?.src && alarm?.value) {
         audio.play();
       }
       setActiveSession(); // Move to the next session when complete

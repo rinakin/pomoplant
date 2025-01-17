@@ -47,4 +47,5 @@ export const DEFAULT_POMODORO_CYCLE: Session[] = [
 // Match the session schema used in the form
 export const DEFAULT_SESSIONS_FORM_VALUES: TSessionsFormSchema = {
   sessions: [...DEFAULT_POMODORO_CYCLE],
+  plant: 'none',
 };
