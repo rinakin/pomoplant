@@ -3,13 +3,19 @@ import Lottie, { LottieRefCurrentProps, LottieComponentProps } from 'lottie-reac
 import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import { cn } from '@/lib/utils';
+import { PlantData } from '@/types/types';
 
 interface AnimatedProgressProps extends LottieComponentProps {
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationData: any;
+  plantData: PlantData;
 }
 
-const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...lottieProps }) => {
+const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
+  plantData,
+  animationData,
+  ...lottieProps
+}) => {
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const { status, elapsedTime } = useTimerStore();
   const { sessions, activeSessionIndex, allSessionsCompleted } = useSessionStore();
@@ -80,9 +86,9 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({ animationData, ...l
     <div>
       <Lottie
         lottieRef={lottieRef}
-        animationData={animationData}
         autoPlay={false}
         loop={false}
+        animationData={animationData}
         className={cn('max-w-[450px]', lottieProps.className)}
         {...lottieProps}
         aria-label="Session progress animation" // Descriptive label

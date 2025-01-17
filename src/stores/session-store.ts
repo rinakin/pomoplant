@@ -2,11 +2,13 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 import { DEFAULT_POMODORO_CYCLE } from '@/lib/timeConfig';
-import { Session, Audio } from '@/types/types';
+import { Session, Audio, PlantData } from '@/types/types';
 import { ALARM_SOUNDS } from '@/lib/audio';
+import { PLANT_ANIMATIONS } from '@/lib/plant-animations';
 
 interface SessionState {
   sessions: Session[];
+  plant: PlantData | undefined;
   alarm: Audio | undefined;
   setAlarm: (alarm: Audio | undefined) => void;
   allSessionsCompleted: boolean;
@@ -14,6 +16,7 @@ interface SessionState {
   setActiveSession: () => void;
   markSessionCompleted: () => void;
   updateSessions: (data: Session[]) => void;
+  updatePlant: (plantId: string) => void;
   resetSessions: () => void;
 }
 
@@ -21,6 +24,7 @@ const useSessionStore = create<SessionState>()(
   persist(
     (set, get) => ({
       sessions: DEFAULT_POMODORO_CYCLE,
+      plant: PLANT_ANIMATIONS[0],
       activeSessionIndex: 0,
       allSessionsCompleted: false,
       alarm: ALARM_SOUNDS[0],
@@ -57,6 +61,21 @@ const useSessionStore = create<SessionState>()(
       },
       updateSessions: (data) => {
         set(() => ({ sessions: data }));
+      },
+      updatePlant: (plantId) => {
+        if (plantId === 'none') {
+          set({ plant: undefined });
+        } else if (plantId === 'random') {
+          // Randomly select a plant and set the entire plant object in the state
+          const randomPlant = PLANT_ANIMATIONS[Math.floor(Math.random() * PLANT_ANIMATIONS.length)];
+          set({ plant: randomPlant });
+        } else {
+          // Find the plant based on the plantId and set the full plant object
+          const findPlant = PLANT_ANIMATIONS.find((plant) => plant.id === plantId);
+          if (findPlant) {
+            set({ plant: findPlant });
+          }
+        }
       },
     }),
     {

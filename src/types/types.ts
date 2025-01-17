@@ -31,3 +31,13 @@ export type Audio = {
   label: string;
   value: string;
 };
+
+export type PlantData = {
+  id: string;
+  name: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  animationData: any;
+  growthEndFrame: number;
+  completedFrames: number[];
+  totalFrames: number;
+};

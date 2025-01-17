@@ -56,10 +56,10 @@ const ChangeAlarm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row items-center gap-4">
+    <div className="flex w-full flex-row items-center gap-2">
       <SettingsHeader title="Alarm:" />
       <Select onValueChange={onClick} defaultValue={alarm ? alarm.value : 'none'}>
-        <SelectTrigger className="w-full sm:w-[180px]">
+        <SelectTrigger className="w-full">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import fonts from '@/lib/fonts';
 import useSessionStore from '@/stores/session-store';
 import useTimerStore from '@/stores/timer-store';
-import PlantAnimation from '@/assets/lottie/plant-progress-1.json';
 
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -24,9 +23,11 @@ const TimerDisplay = () => {
     allSessionsCompleted,
     resetSessions,
     alarm,
+    plant,
   } = useSessionStore();
   const activeSession = sessions[activeSessionIndex];
   const audio = useSoundEffect({ src: alarm ? alarm?.value : '' });
+
   // Update active session when the timer completes
   useEffect(() => {
     if (status === 'complete') {
@@ -50,7 +51,6 @@ const TimerDisplay = () => {
       });
     }
   }, [activeSession, updateTimeData]);
-
   return (
     <div className="relative w-full">
       <Container>
@@ -59,9 +59,11 @@ const TimerDisplay = () => {
           <CardContent className="flex w-full flex-col items-center justify-center gap-8">
             {sessions.length !== 0 && (
               <>
-                <div className="absolute inset-0 z-0 flex items-center justify-center">
-                  <AnimatedProgress animationData={PlantAnimation} />
-                </div>
+                {plant && (
+                  <div className="absolute inset-0 z-0 flex items-center justify-center">
+                    <AnimatedProgress plantData={plant} animationData={plant.animationData} />
+                  </div>
+                )}
 
                 <div className="relative z-10 flex flex-col items-center justify-center gap-8">
                   <div className="relative z-10 flex aspect-square items-center justify-center rounded-full border-[10px] border-primary bg-timer/40 p-10 md:p-14">

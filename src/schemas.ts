@@ -28,7 +28,8 @@ const sessionSchema = z
 
 // Define the schema for the entire form, which is an array of sessions
 export const sessionsFormSchema = z.object({
-  sessions: z.array(sessionSchema), // This is an array of session objects
+  sessions: z.array(sessionSchema),
+  plant: z.string(),
 });
 
 export type TSessionsFormSchema = z.infer<typeof sessionsFormSchema>;

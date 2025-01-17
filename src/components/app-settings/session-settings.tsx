@@ -17,6 +17,7 @@ import useTimerStore from '@/stores/timer-store';
 
 import SettingsHeader from './settings-header';
 import SessionHeader from './session-header';
+import ChangePlant from './change-plant';
 import {
   Form,
   FormField,
@@ -30,14 +31,13 @@ interface SessionSettingsProps {
 }
 
 const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
-  const { sessions, updateSessions, resetSessions } = useSessionStore();
+  const { sessions, updateSessions, resetSessions, plant, updatePlant } = useSessionStore();
   const { resetTimer } = useTimerStore();
   const form = useForm<TSessionsFormSchema>({
     resolver: zodResolver(sessionsFormSchema),
-    defaultValues: { sessions: sessions },
+    defaultValues: { sessions: sessions, plant: plant ? plant.id : 'none' },
   });
   const { control } = form;
-
   const { fields, append, remove, replace } = useFieldArray({
     control,
     name: 'sessions',
@@ -61,6 +61,7 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
       ...item,
       completed: false,
     }));
+    updatePlant(values.plant);
     updateSessions(updatedSessions);
     resetSessions();
     resetTimer();
@@ -69,13 +70,24 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
   return (
     <div className="space-y-4">
       <SettingsHeader title="Customize Sessions" />
-      {/* Mode selection buttons */}
-      <Button variant={'outline'} onClick={onDefaultSession} className="px-2 sm:px-3">
-        Default Pomodoro
-      </Button>
-
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <div className="flex flex-row items-center justify-between">
+            <Button
+              type="button"
+              variant={'outline'}
+              onClick={onDefaultSession}
+              className="px-2 sm:px-3"
+            >
+              Default Pomodoro
+            </Button>
+            <FormField
+              control={control}
+              name="plant"
+              render={({ field }) => <ChangePlant field={field} />}
+            />
+          </div>
+
           <div className="grid gap-6 sm:grid-cols-2">
             {fields.map((field, index) => {
               const phase = form.watch(`sessions.${index}.phase`);
