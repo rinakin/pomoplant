@@ -43,6 +43,7 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
     if (!totalFrames || !animationDuration || !currentSession) return;
 
     if (allSessionsCompleted) {
+      lottieRef.current.setSpeed(1);
       lottieRef.current.goToAndPlay(endFrame, true);
       return;
     }

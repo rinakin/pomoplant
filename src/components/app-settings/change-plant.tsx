@@ -29,7 +29,7 @@ const ChangePlant: React.FC<ChangePlantProps> = ({ field }) => {
               None
             </SelectItem>
             <SelectItem key={'random'} value={'random'}>
-              Surprise Me
+              Random
             </SelectItem>
             {PLANT_ANIMATIONS.map((item) => (
               <SelectItem key={item.id} value={item.id}>
