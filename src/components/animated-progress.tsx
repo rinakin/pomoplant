@@ -90,17 +90,15 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
   }, [activeSessionIndex, updateInitialFrame]);
 
   return (
-    <div>
-      <Lottie
-        lottieRef={lottieRef}
-        autoPlay={false}
-        loop={false}
-        animationData={animationData}
-        className={cn('max-w-[450px]', lottieProps.className)}
-        {...lottieProps}
-        aria-label="Session progress animation" // Descriptive label
-      />
-    </div>
+    <Lottie
+      lottieRef={lottieRef}
+      autoPlay={false}
+      loop={false}
+      animationData={animationData}
+      className={cn('max-w-[425px]', lottieProps.className)}
+      {...lottieProps}
+      aria-label="Session progress animation" // Descriptive label
+    />
   );
 };
 

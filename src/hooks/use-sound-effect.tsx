@@ -6,7 +6,7 @@ interface SoundEffectProps {
   playbackRate?: number;
 }
 
-const useSoundEffect = ({ src, volume = 0.4, playbackRate = 1 }: SoundEffectProps) => {
+const useSoundEffect = ({ src, volume = 0.6, playbackRate = 1 }: SoundEffectProps) => {
   const audio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {

@@ -29,6 +29,7 @@ const ChangeAlarm: React.FC = () => {
     }
 
     audioRef.current.src = src;
+    audioRef.current.volume = 0.6;
     audioRef.current.play();
     audioRef.current.loop = false;
   };

@@ -28,6 +28,7 @@ const ChangeTheme: React.FC<ChangeThemeProps> = ({ handleDialogClose }) => {
   return (
     <div className="flex w-full flex-row items-center gap-2">
       <SettingsHeader title="Theme:" />
+
       <Select onValueChange={onClick} defaultValue={theme}>
         <SelectTrigger className="w-full">
           <SelectValue />

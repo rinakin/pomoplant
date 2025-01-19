@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import fonts from '@/lib/fonts';
 import useSessionStore from '@/stores/session-store';
 import useTimerStore from '@/stores/timer-store';
+import { cn } from '@/lib/utils';
 
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -52,21 +53,26 @@ const TimerDisplay = () => {
     }
   }, [activeSession, updateTimeData]);
   return (
-    <div className="relative w-full">
+    <div className="w-full">
       <Container>
         <Card>
           <CardHeader />
-          <CardContent className="flex w-full flex-col items-center justify-center gap-8">
+          <CardContent className="relative flex w-full flex-col items-center justify-center gap-8">
             {sessions.length !== 0 && (
               <>
                 {plant && (
-                  <div className="absolute inset-0 z-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                     <AnimatedProgress plantData={plant} animationData={plant.animationData} />
                   </div>
                 )}
 
-                <div className="relative z-10 flex flex-col items-center justify-center gap-8">
-                  <div className="relative z-10 flex aspect-square items-center justify-center rounded-full border-[10px] border-primary bg-timer/40 p-10 md:p-14">
+                <div className="z-10 flex flex-col items-center justify-center gap-8">
+                  <div
+                    className={cn(
+                      `z-10 flex aspect-square items-center justify-center rounded-full border-[10px] border-primary bg-timer/40 p-10 opacity-100 transition-all duration-200 ease-in md:p-14`,
+                      { 'opacity-0': allSessionsCompleted },
+                    )}
+                  >
                     <div
                       className={`text-5xl font-bold text-timer-foreground ${fonts.robotoMono.className} min-[450px]:text-6xl lg:text-7xl`}
                     >
@@ -97,11 +103,16 @@ const TimerDisplay = () => {
               </div>
             )}
           </CardContent>
-          <CardFooter className="flex items-center justify-start">
+          <CardFooter className="flex items-center justify-between">
             {sessions.length > 0 && (
               <p className="rounded-full bg-muted px-4 py-1 text-lg font-medium md:px-6 md:text-2xl">
                 {allSessionsCompleted ? 'finished' : phase}
               </p>
+            )}
+            {!allSessionsCompleted && (
+              <Button onClick={resetSessions} variant={'ghost'}>
+                Restart Sessions
+              </Button>
             )}
           </CardFooter>
         </Card>

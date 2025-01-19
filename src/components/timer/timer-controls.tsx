@@ -37,7 +37,7 @@ const TimerControls: React.FC<TimerControlsProps> = ({
       case 'active':
       case 'paused':
         return (
-          <>
+          <div className="space-x-4 md:space-x-6">
             <Button variant="secondary" onClick={status === 'paused' ? startTimer : pauseTimer}>
               {status === 'paused' ? (
                 <>
@@ -51,18 +51,18 @@ const TimerControls: React.FC<TimerControlsProps> = ({
                 </>
               )}
             </Button>
-            <Button onClick={resetTimer} variant={'ghost'}>
+            <Button onClick={resetTimer} variant={'outline'}>
               <TimerReset />
               Reset
             </Button>
-          </>
+          </div>
         );
       default:
         return null;
     }
   };
   return (
-    <div className="flex w-full items-center justify-center gap-4 rounded-md font-bold text-card-foreground">
+    <div className="flex items-center justify-center gap-4 rounded-md font-bold text-card-foreground">
       {!allSessionsCompleted && renderControls()}
       {allSessionsCompleted && <Button onClick={resetSessions}>Restart Sessions</Button>}
     </div>

@@ -34,13 +34,15 @@ const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
           </DialogTitle>
           <DialogDescription />
         </DialogHeader>
-        {type == 'full' && (
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:gap-8">
-            <ChangeTheme handleDialogClose={handleDialogClose} />
-            <ChangeAlarm />
-          </div>
-        )}
-        <SessionSettings onSave={handleDialogClose} />
+        <div className="space-y-10">
+          {type == 'full' && (
+            <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:gap-8">
+              <ChangeTheme handleDialogClose={handleDialogClose} />
+              <ChangeAlarm />
+            </div>
+          )}
+          <SessionSettings onSave={handleDialogClose} />
+        </div>
       </DialogContent>
     </Dialog>
   );
