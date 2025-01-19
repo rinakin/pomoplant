@@ -7,7 +7,7 @@ const AppNavbar = () => {
   return (
     <header className="relative py-4">
       <Container className="flex items-center justify-between">
-        <div className="cursor-pointer text-xl font-bold">Pomoloop</div>
+        <div className="cursor-pointer text-xl font-bold">Pomoplant</div>
         <AppMainNav />
       </Container>
     </header>

@@ -1,12 +1,16 @@
 import React from 'react';
 import Container from '@/components/ui/container';
+import SocialsList from '@/components/ui/socials-list';
+import { Separator } from '@/components/ui/separator';
 
 const Footer = () => {
   return (
-    <footer className="mb-auto bg-[#1e3b46]">
-      <Container>
-        <div className="flex h-16 w-full items-center justify-center text-xs text-neutral-400">
-          <span>&#xa9; 2024, Pomoloop</span>
+    <footer className="mb-auto bg-[#c2c9b6]">
+      <Container className="space-y-4 py-6">
+        <div className="flex w-full flex-col items-center justify-center">
+          <SocialsList />
+          <Separator className="bg-[#c2c9b6]" />
+          <span className="mt-6 text-xs">© 2025 Pomoplant by Rinakin. All rights reserved.</span>
         </div>
       </Container>
     </footer>
