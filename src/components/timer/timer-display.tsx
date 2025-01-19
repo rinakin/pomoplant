@@ -110,7 +110,13 @@ const TimerDisplay = () => {
               </p>
             )}
             {!allSessionsCompleted && (
-              <Button onClick={resetSessions} variant={'ghost'}>
+              <Button
+                onClick={() => {
+                  resetTimer();
+                  resetSessions();
+                }}
+                variant={'ghost'}
+              >
                 Restart Sessions
               </Button>
             )}
