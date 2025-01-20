@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useMemo, useCallback } from 'react';
-import Lottie, { LottieRefCurrentProps, LottieComponentProps } from 'lottie-react';
+import dynamic from 'next/dynamic';
+import { LottieRefCurrentProps, LottieComponentProps } from 'lottie-react';
 import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import { cn } from '@/lib/utils';
 import { PlantData } from '@/types/types';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 interface AnimatedProgressProps extends LottieComponentProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
