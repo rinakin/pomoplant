@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
-
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+// or lottie-react - depending on what library you use
 interface LottiePlayerProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationData: any;
@@ -10,6 +11,7 @@ interface LottiePlayerProps {
 }
 
 const LottiePlayer: React.FC<LottiePlayerProps> = ({ animationData, className }) => {
+  console.log(animationData);
   return (
     <Lottie
       animationData={animationData}
