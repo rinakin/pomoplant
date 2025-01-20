@@ -4,6 +4,7 @@ import './globals.css';
 import fonts from '@/lib/fonts';
 
 import { ThemeProvider } from '@/components/theme-provider';
+import { themeValues } from '@/lib/themes';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,9 +21,24 @@ export default function RootLayout({
       <body className={`${fonts.workSans.className} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="default"
-          themes={['default', 'slate', 'slateDark', 'cottonCandy', 'cottonCandyDark']}
+          defaultTheme="defaultDark"
           disableTransitionOnChange
+          themes={[
+            'default',
+            'defaultDark',
+            'slate',
+            'slateDark',
+            'pastelPink',
+            'pastelPinkDark',
+            'steampunkCogs',
+            'steampunkCogsDark',
+            'vintageVinyl',
+            'vintageVinylDark',
+            'mistyHarbor',
+            'mistyHarborDark',
+            'zenGarden',
+            'zenGardenDark',
+          ]}
         >
           <div className="flex min-h-screen flex-col">
             <main className="flex-grow">{children}</main>

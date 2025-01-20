@@ -13,16 +13,24 @@ export const THEMES: ThemeTypes[] = [
     value: 'slate',
   },
   {
-    label: 'Slate Dark',
-    value: 'slateDark',
+    label: 'Pastel Pink',
+    value: 'pastelPink',
   },
   {
-    label: 'Cotton Candy',
-    value: 'cottonCandy',
+    label: 'Steampunk Cogs',
+    value: 'steampunkCogs',
   },
   {
-    label: 'Cotton Candy Dark',
-    value: 'cottonCandyDark',
+    label: 'Vintage Vinyl',
+    value: 'vintageVinyl',
+  },
+  {
+    label: 'Misty Harbor',
+    value: 'mistyHarbor',
+  },
+  {
+    label: 'Zen Garden',
+    value: 'zenGarden',
   },
 ];
 

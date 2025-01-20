@@ -69,7 +69,7 @@ const TimerDisplay = () => {
                 <div className="z-10 flex flex-col items-center justify-center gap-8">
                   <div
                     className={cn(
-                      `z-10 flex aspect-square items-center justify-center rounded-full border-[10px] border-primary bg-timer/40 p-10 opacity-100 transition-all duration-200 ease-in md:p-14`,
+                      `z-10 flex aspect-square items-center justify-center rounded-full border-[10px] border-primary/90 bg-background/40 p-10 opacity-100 transition-all duration-200 ease-in md:p-14`,
                       { 'opacity-0': allSessionsCompleted },
                     )}
                   >

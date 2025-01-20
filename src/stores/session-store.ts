@@ -10,6 +10,8 @@ interface SessionState {
   sessions: Session[];
   plant: PlantData | undefined;
   alarm: Audio | undefined;
+  darkMode: boolean;
+  setDarkMode: () => void;
   setAlarm: (alarm: Audio | undefined) => void;
   allSessionsCompleted: boolean;
   activeSessionIndex: number;
@@ -25,6 +27,7 @@ const useSessionStore = create<SessionState>()(
     (set, get) => ({
       sessions: DEFAULT_POMODORO_CYCLE,
       plant: PLANT_ANIMATIONS[0],
+      darkMode: false,
       activeSessionIndex: 0,
       allSessionsCompleted: false,
       alarm: ALARM_SOUNDS[0],
@@ -76,6 +79,9 @@ const useSessionStore = create<SessionState>()(
             set({ plant: findPlant });
           }
         }
+      },
+      setDarkMode: () => {
+        set((state) => ({ darkMode: !state.darkMode }));
       },
     }),
     {

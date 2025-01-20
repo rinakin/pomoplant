@@ -18,7 +18,10 @@ const Navbar = async () => {
           <Leaf size={18} className={'stroke-[#274754]'} fill="#2f7b5d" />
           Pomoplant
         </Link>
-        <Button variant={'outline'}>
+        <Button
+          variant={'outline'}
+          className="border-[#b8b594] bg-[#f2f5e0] text-[#4a5568] hover:bg-[#9cad85] hover:text-[#29303d]"
+        >
           <Image alt="Ko-Fi logo" src={Kofi} style={{ objectFit: 'contain', width: '18px' }} />
           Support me
         </Button>

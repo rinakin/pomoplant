@@ -19,7 +19,7 @@ const RoadmapIcon: React.FC<RoadmapIconProps> = ({ phase, completed, isActive })
         className={cn(
           `flex aspect-square h-9 w-9 items-center justify-center rounded-full border-[2px] border-primary bg-muted p-2 text-muted-foreground transition-all duration-200 sm:h-10 sm:w-10`,
           {
-            'scale-110 border-primary bg-timer text-timer-foreground': isActive,
+            'scale-110 border-primary bg-background text-foreground': isActive,
             'border-primary bg-primary text-primary-foreground': completed,
           },
         )}
