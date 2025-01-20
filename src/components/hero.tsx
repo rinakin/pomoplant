@@ -12,13 +12,13 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pb-32 md:min-h-[100vh] md:py-32">
       <Container>
-        <div className="flex flex-col items-center justify-center md:flex-row md:justify-between">
+        <div className="flex flex-col items-center justify-center md:flex-row md:justify-between md:gap-4">
           <LottiePlayer
             aria-label="A stopwatch animation illustrating productivity with the Pomodoro Technique"
             animationData={LottieAnimation}
-            className="md:order-2 md:max-w-[525px]"
+            className="md:order-2 md:max-w-[500px]"
           />
-          <div className="text-center md:order-1 md:text-start">
+          <div className="text-center md:order-1 md:w-full md:text-start">
             <h1 className="mb-4 text-3xl font-extrabold text-[#773f1a] lg:text-4xl">
               Maximize Your Productivity with Timed Focus.
             </h1>
@@ -27,8 +27,9 @@ const Hero: React.FC = () => {
               <Leaf size={32} className={'stroke-[#274754]'} fill="#2f7b5d" />
             </div>
             <p className="text-gray-700">
-              Boost your productivity by working in focused intervals with the Pomodoro Technique.
-              Balance intense work sessions with restorative breaks for a more efficient workflow.
+              Customize your sessions, create your ideal workflow, and watch your virtual plant grow
+              as you work through your focus intervals. Switch between themes to match your style,
+              and stay motivated as you achieve your goals.
             </p>
             <p className="mb-4 mt-8 text-sm text-gray-600">
               Start focusing instantly, no sign-up needed!
@@ -44,7 +45,7 @@ const Hero: React.FC = () => {
                   Start Focusing
                 </Button>
               </Link>
-              <Link href={'/'} className="w-full md:w-48">
+              <a href={'#how-it-works'} className="w-full md:w-48">
                 <Button
                   size={'lg'}
                   variant={'secondary'}
@@ -53,7 +54,7 @@ const Hero: React.FC = () => {
                 >
                   How it works
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({ animationData, className })
       animationData={animationData}
       autoPlay={true}
       loop={true}
-      className={cn(`max-w-[450px]`, className)}
+      className={cn(`max-w-[350px]`, className)}
     />
   );
 };
