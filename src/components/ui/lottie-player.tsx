@@ -11,7 +11,6 @@ interface LottiePlayerProps {
 }
 
 const LottiePlayer: React.FC<LottiePlayerProps> = ({ animationData, className }) => {
-  console.log(animationData);
   return (
     <Lottie
       animationData={animationData}

@@ -5,7 +5,7 @@ import useTimerStore from '@/stores/timer-store';
 import useSessionStore from '@/stores/session-store';
 import { cn } from '@/lib/utils';
 import { PlantData } from '@/types/types';
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+const Lottie = dynamic(() => import('lottie-react'), { ssr: true });
 
 interface AnimatedProgressProps extends LottieComponentProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -25,7 +25,7 @@ const ChangeTheme = () => {
     }
   }, [theme, darkMode, setTheme]);
 
-  const defaultValue = theme?.replace('Dark', '') || 'default';
+  const defaultValue = theme?.replace('Dark', '') || theme;
 
   const onClick = (theme: string) => {
     if (darkMode) {
