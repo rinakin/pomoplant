@@ -29,7 +29,7 @@ const TimerControls: React.FC<TimerControlsProps> = ({
     switch (status) {
       case 'inactive':
         return (
-          <Button onClick={startTimer}>
+          <Button onClick={startTimer} className="hover:bg-primary/95">
             <Timer />
             {`Start ${capitalizeFirstLetter(phase)} Timer`}
           </Button>
@@ -38,7 +38,11 @@ const TimerControls: React.FC<TimerControlsProps> = ({
       case 'paused':
         return (
           <div className="space-x-4 md:space-x-6">
-            <Button variant="secondary" onClick={status === 'paused' ? startTimer : pauseTimer}>
+            <Button
+              variant="secondary"
+              onClick={status === 'paused' ? startTimer : pauseTimer}
+              className="hover:bg-secondary/95"
+            >
               {status === 'paused' ? (
                 <>
                   <Play />

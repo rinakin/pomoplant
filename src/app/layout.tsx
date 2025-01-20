@@ -4,7 +4,6 @@ import './globals.css';
 import fonts from '@/lib/fonts';
 
 import { ThemeProvider } from '@/components/theme-provider';
-import { themeValues } from '@/lib/themes';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
