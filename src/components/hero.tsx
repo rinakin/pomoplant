@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden pb-32 md:min-h-[90vh] md:py-32">
+    <section className="relative min-h-screen overflow-hidden pb-32 md:min-h-[100vh] md:py-32">
       <Container>
         <div className="flex flex-col items-center justify-center md:flex-row md:justify-between">
           <LottiePlayer
