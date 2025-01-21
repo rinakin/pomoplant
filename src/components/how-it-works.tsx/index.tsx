@@ -1,15 +1,18 @@
 import React from 'react';
+
 import Container from '@/components/ui/container';
+import PomodoroBenefits from './pomodoro-benefits';
+import AppFeatures from './app-features';
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="min-h-[100vh]">
+    <section id="how-it-works" className="min-h-[100vh] bg-[#e8ebd3] py-16">
       <Container>
-        <h2 className="text-2xl font-semibold text-gray-800">How It Works</h2>
-        <p>Benefits of the Pomodoro Technique</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas sapiente numquam quos.
-        </p>
+        <h2 className="mb-8 text-center text-4xl font-bold text-[#643516]">How It Works</h2>
+        <div className="space-y-24">
+          <PomodoroBenefits />
+          <AppFeatures />
+        </div>
       </Container>
     </section>
   );

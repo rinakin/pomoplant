@@ -11,6 +11,7 @@ const HomePage = () => {
       <Navbar />
       <Hero />
       <HowItWorks />
+      <section className="h-16">CTA again</section>
       <Footer />
     </div>
   );

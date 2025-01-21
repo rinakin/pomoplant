@@ -72,12 +72,12 @@ const SessionSettings: React.FC<SessionSettingsProps> = ({ onSave }) => {
       <SettingsHeader title="Customize Sessions" />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <div className="flex flex-row items-center justify-between">
+          <div className="flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
             <Button
               type="button"
               variant={'outline'}
               onClick={onDefaultSession}
-              className="px-2 sm:px-3"
+              className="w-full px-2 sm:w-auto sm:px-3"
             >
               Default Pomodoro
             </Button>

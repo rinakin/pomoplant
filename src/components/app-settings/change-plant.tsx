@@ -17,11 +17,11 @@ interface ChangePlantProps {
 }
 const ChangePlant: React.FC<ChangePlantProps> = ({ field }) => {
   return (
-    <FormItem className="flex flex-row items-center gap-2 space-y-0">
+    <FormItem className="flex w-full flex-row items-center gap-2 space-y-0 sm:w-auto">
       <FormLabel>Plant:</FormLabel>
       <FormControl>
         <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
