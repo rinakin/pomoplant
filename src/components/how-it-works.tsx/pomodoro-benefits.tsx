@@ -2,7 +2,6 @@ import React from 'react';
 
 import { ScanHeart, TrendingUp, Clock, Sprout } from 'lucide-react';
 import BenefitCard from './benefit-card';
-import Container from '../ui/container';
 
 const PomodoroBenefits = () => {
   return (
