@@ -12,13 +12,15 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pb-32 md:min-h-[100vh] md:py-32">
       <Container>
-        <div className="flex flex-col items-center justify-center md:flex-row md:justify-between md:gap-4">
-          <LottiePlayer
-            aria-label="A stopwatch animation illustrating productivity with the Pomodoro Technique"
-            animationData={LottieAnimation}
-            className="md:order-2 md:max-w-[500px]"
-          />
-          <div className="text-center md:order-1 md:w-full md:text-start">
+        <div className="flex w-full flex-col items-center justify-center md:flex-row md:justify-between md:gap-4">
+          <div className="flex h-[300px] w-[300px] items-center justify-center md:order-2 md:h-[500px] md:w-[500px]">
+            <LottiePlayer
+              aria-label="A stopwatch animation illustrating productivity with the Pomodoro Technique"
+              animationData={LottieAnimation}
+              className="max-w-[600px]"
+            />
+          </div>
+          <div className="w-full text-center md:order-1 md:w-3/4 md:text-start">
             <h1 className="mb-4 text-3xl font-extrabold text-[#773f1a] lg:text-4xl">
               Maximize Your Productivity with Timed Focus.
             </h1>
