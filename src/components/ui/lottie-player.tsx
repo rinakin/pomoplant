@@ -1,9 +1,11 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
+import LoadingSpinner from '@/components/ui/loading';
+
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
-// or lottie-react - depending on what library you use
+
 interface LottiePlayerProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationData: any;
@@ -11,13 +13,24 @@ interface LottiePlayerProps {
 }
 
 const LottiePlayer: React.FC<LottiePlayerProps> = ({ animationData, className }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleDOMReady = () => {
+    setIsLoading(false);
+    console.log('DOM is ready for the animation.');
+  };
+
   return (
-    <Lottie
-      animationData={animationData}
-      autoPlay={true}
-      loop={true}
-      className={cn(`max-w-[350px]`, className)}
-    />
+    <div>
+      {isLoading && <LoadingSpinner />}
+      <Lottie
+        animationData={animationData}
+        autoPlay
+        loop
+        className={cn(`max-w-[350px]`, className)}
+        onDOMLoaded={handleDOMReady}
+      />
+    </div>
   );
 };
 
