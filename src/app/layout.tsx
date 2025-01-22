@@ -6,9 +6,9 @@ import fonts from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'Pomoplant - Pomodoro Timer with Growing Plant for Focus',
+  title: 'Pomoplant - Customizable Pomodoro Timer to Boost Your Focus',
   description:
-    'Boost your productivity with Pomoplant, a Pomodoro timer that helps you stay focused while your plant grows with each session.',
+    'Boost productivity with Pomoplant, a customizable Pomodoro timer. Stay focused as your plant grows with each session, offering a personalized experience.',
 };
 
 export default function RootLayout({

@@ -5,9 +5,9 @@ import AppNavbar from '@/components/app-navbar';
 import AppFooter from '@/components/app-footer';
 
 export const metadata: Metadata = {
-  title: 'Pomoplant - Focus Mode with Your Growing Plant',
+  title: 'Pomoplant - Pomodoro Timer that Grows with You',
   description:
-    'Stay focused with Pomoplant’s Pomodoro timer. Complete tasks in focused intervals and watch your plant grow as you progress through sessions.',
+    'Boost productivity with Pomoplant’s Pomodoro timer. Add and complete tasks in focused intervals, and watch your plant grow as you progress through your flow.',
 };
 
 const MainLayout = ({
