@@ -27,7 +27,7 @@ const AppFeatures = () => {
           icon={CustomFlowVector}
         />
         <AppFeatureCard
-          iconBackgroundColor="bg-[#fefeb6]"
+          iconBackgroundColor="bg-[#FFF0D1]"
           title="Stay on Track with Tasks"
           description="Add, manage, and check off your to-dos to stay organized and productive throughout your focus time."
           icon={TaskVector}

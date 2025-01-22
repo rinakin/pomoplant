@@ -1,11 +1,13 @@
 'use client';
-
 import React, { useEffect, useState } from 'react';
+
+import useSessionStore from '@/stores/session-store';
+
 import TimerContainer from '@/components/timer/timer-container';
 import TasksContainer from '@/components/tasks/tasks-container';
-import useSessionStore from '@/stores/session-store';
 import Container from '@/components/ui/container';
 import LoadingSpinner from '@/components/ui/loading';
+
 const FocusPage = () => {
   // Check if store is hydrated (from localStorage)
   const [hydrated, setHydrated] = useState(false);
