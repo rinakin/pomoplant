@@ -38,21 +38,21 @@ body {
   .default {
   }
   .defaultDark {
-    --background: 220 25% 12%;
+    --background: 60 5% 24%;
     --foreground: 220 20% 90%;
-    --card: 220 15% 16%;
+    --card: 60 5% 16%;
     --card-foreground: 220 20% 80%;
     --popover: 220 20% 18%;
     --popover-foreground: 220 20% 90%;
-    --primary: 197 37% 24%;
+    --primary: 197 50% 30%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 190 20% 45%;
+    --secondary: 35 20% 50%;
     --secondary-foreground: 220 10% 95%;
-    --accent: 200 20% 50%;
+    --accent: 84 13% 48%;
     --accent-foreground: 220 10% 95%;
     --input: 210 15% 35%;
     --ring: 200 20% 50%;
-    --muted: 210 10% 40%;
+    --muted: 84 5% 38%;
     --muted-foreground: 220 15% 80%;
     --destructive: 0 50% 45%;
     --destructive-foreground: 220 15% 80%;
@@ -122,7 +122,7 @@ body {
   }
   .pastelPink {
     --background: 60 30% 97%;
-    --foreground: 60 30% 10%;
+    --foreground: 60 10% 20%;
     --card: 60 30% 98%;
     --card-foreground: 60 30% 10%;
     --popover: 60 30% 98%;
@@ -146,7 +146,7 @@ body {
     --chart-3: 270 70% 80%;
     --chart-4: 120 60% 80%;
     --chart-5: 30 80% 80%;
-    --timer-foreground: 350 80% 10%;
+    --timer-foreground: 60 10% 20%;
   }
   .pastelPinkDark {
     --background: 270 30% 10%;
