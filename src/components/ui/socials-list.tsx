@@ -14,29 +14,51 @@ const SocialsList = () => {
   return (
     <div className="flex flex-row items-center gap-2">
       <Button
+        asChild
         className={cn('hover:bg-[#9cad85] [&_svg]:size-6', { 'hover:bg-accent': isFocus })}
         size={'icon'}
         variant={'ghost'}
-        onClick={() => window.open('https://github.com/schan610', '_blank')}
       >
-        <Github className={cn({ 'fill-current': isFocus })} />
+        <a
+          href="https://github.com/schan610"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="My Github"
+        >
+          <Github className={cn({ 'fill-current': isFocus })} />
+        </a>
       </Button>
 
       <Button
+        asChild
         className={cn('hover:bg-[#9cad85] [&_svg]:size-6', { 'hover:bg-accent': isFocus })}
         size={'icon'}
         variant={'ghost'}
-        onClick={() => window.open('https://www.linkedin.com/in/sabrinachan-cs/', '_blank')}
       >
-        <Linkedin className={cn({ 'fill-current': isFocus })} />
+        <a
+          href="https://www.linkedin.com/in/sabrinachan-cs/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Find me on Linkedin"
+        >
+          <Linkedin className={cn({ 'fill-current': isFocus })} />
+        </a>
       </Button>
       <Button
+        asChild
         className={cn('hover:bg-[#9cad85] [&_svg]:size-6', { 'hover:bg-accent': isFocus })}
         size={'icon'}
         variant={'ghost'}
         onClick={() => window.open('https://ko-fi.com', '_blank')}
       >
-        <Kofi className={cn({ 'fill-current': isFocus })} />
+        <a
+          href="https://ko-fi.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Support me on Ko-Fi"
+        >
+          <Kofi className={cn({ 'fill-current': isFocus })} />
+        </a>
       </Button>
     </div>
   );

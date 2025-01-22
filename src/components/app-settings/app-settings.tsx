@@ -28,7 +28,7 @@ const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-h-[100dvh] overflow-y-auto sm:max-w-3xl">
+      <DialogContent aria-describedby="" className="max-h-[100dvh] overflow-y-auto sm:max-w-3xl">
         <DialogHeader className="my-4 flex w-full flex-row items-center justify-between">
           <DialogTitle className="flex flex-row items-center gap-2">
             {type === 'full' ? 'App Settings' : 'Add Sessions'}

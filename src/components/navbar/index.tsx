@@ -19,7 +19,7 @@ const Navbar = async () => {
         </Link>
         <Button
           variant={'outline'}
-          className="border-[#b8b594] bg-[#f2f5e0] text-[#4a5568] hover:bg-[#9cad85] hover:text-[#29303d]"
+          className="border-[#afaa93] bg-[#f9faf0] text-[#4a5568] hover:bg-[#9cad85] hover:text-[#29303d]"
         >
           <Kofi />
           Support me
