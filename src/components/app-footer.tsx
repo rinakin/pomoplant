@@ -8,9 +8,9 @@ const AppFooter = () => {
   return (
     <footer className="mb-auto bg-muted">
       <Container className="space-y-4 py-6 text-muted-foreground">
-        <div className="flex flex-col items-center justify-center gap-3">
-          <p className="text-sm">Credits to:</p>
-          <ul className="flex flex-col flex-wrap items-center justify-center space-x-3 text-sm md:flex-row">
+        <div className="flex flex-col items-center justify-center gap-2">
+          <p className="text-sm">Special Thanks:</p>
+          <ul className="flex flex-col flex-wrap items-center justify-center space-x-3 text-start text-sm min-[405px]:flex-row">
             <li className="text-sm">
               <a
                 href="https://www.zapsplat.com"
@@ -42,7 +42,13 @@ const AppFooter = () => {
               >
                 Shannon
               </a>{' '}
-              - peace lily animation
+              - peace lily
+            </li>
+            <div>♥</div>
+            <li className="text-sm">
+              <a href="https://shadcncolors.com" target="_blank" className="underline">
+                shadcncolors
+              </a>{' '}
             </li>
           </ul>
         </div>
