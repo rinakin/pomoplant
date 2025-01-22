@@ -11,14 +11,13 @@ const ThemeToggle = () => {
 
   const toggleThemeMode = () => {
     if (theme?.endsWith('Dark')) {
-      setTheme(theme.replace('Dark', '')); // Switch to light mode
+      setTheme(theme.replace('Dark', ''));
     } else {
-      setTheme(`${theme}Dark`); // Switch to dark mode
+      setTheme(`${theme}Dark`);
     }
     setDarkMode();
   };
 
-  console.log(darkMode);
   return (
     <Button size={'icon'} onClick={toggleThemeMode}>
       {darkMode ? <Sun /> : <Moon />}

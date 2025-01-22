@@ -33,11 +33,24 @@ const TimerDisplay = () => {
   useEffect(() => {
     if (status === 'complete') {
       if (audio?.src && alarm?.value) {
+        audio.volume = 0.6;
         audio.play();
       }
       setActiveSession(); // Move to the next session when complete
     }
   }, [status, setActiveSession, audio, alarm]);
+
+  const handleStartTimer = () => {
+    if (audio) {
+      audio.volume = 0;
+      audio.play().then(() => {
+        // pause directly
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    }
+    startTimer();
+  };
 
   // Update timer data when a new active session is selected
   useEffect(() => {
@@ -85,7 +98,7 @@ const TimerDisplay = () => {
                   {/* Timer Controls */}
                   <TimerControls
                     phase={phase}
-                    startTimer={startTimer}
+                    startTimer={handleStartTimer}
                     pauseTimer={pauseTimer}
                     resetTimer={resetTimer}
                     status={status}
