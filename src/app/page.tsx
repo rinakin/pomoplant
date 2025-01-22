@@ -4,6 +4,7 @@ import Hero from '@/components/hero';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import HowItWorks from '@/components/how-it-works.tsx';
+import LearnMore from '@/components/learn-more';
 
 const HomePage = () => {
   return (
@@ -11,7 +12,7 @@ const HomePage = () => {
       <Navbar />
       <Hero />
       <HowItWorks />
-      <section className="h-16">CTA again</section>
+      <LearnMore />
       <Footer />
     </div>
   );

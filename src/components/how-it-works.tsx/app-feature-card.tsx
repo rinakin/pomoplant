@@ -1,24 +1,26 @@
 import React from 'react';
-import Image from 'next/image';
-import TaskIcon from '@/assets/vectors/task-vector.svg';
+import { cn } from '@/lib/utils';
 
-const AppFeatureCard = () => {
+interface AppFeatureCardProps {
+  title: string;
+  description: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  iconBackgroundColor: string;
+}
+const AppFeatureCard: React.FC<AppFeatureCardProps> = ({
+  title,
+  description,
+  icon,
+  iconBackgroundColor,
+}) => {
+  const FeatureIcon = icon;
   return (
-    <div className="flex flex-col items-center rounded-lg bg-[#f9faf0] px-4 py-6 shadow-md transition-transform duration-300 hover:scale-105">
-      {/* Image Section */}
-      <Image
-        src={TaskIcon}
-        alt="Task Icon"
-        className="mb-4 h-[64px] w-[64px] rounded-full bg-[#f2f5e0] p-2"
-      />
-
-      {/* Title */}
-      <h3 className="mb-2 text-lg font-semibold text-gray-800">Customize flow</h3>
-
-      {/* Description */}
-      <p className="text-center text-sm text-gray-600">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia odio eligendi tempore.
-      </p>
+    <div className="flex flex-col items-center rounded-lg bg-[#f9faf0] px-6 py-8 shadow-md transition-transform duration-300 hover:scale-105">
+      <div className={cn('mb-6 rounded-full p-2', iconBackgroundColor)}>
+        <FeatureIcon width={64} />
+      </div>
+      <h3 className="mb-1 text-center text-lg font-semibold text-gray-800">{title}</h3>
+      <p className="text-center text-sm text-gray-600">{description}</p>
     </div>
   );
 };

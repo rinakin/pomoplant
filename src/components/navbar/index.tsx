@@ -5,7 +5,6 @@ import { Leaf } from 'lucide-react';
 import Kofi from '@/assets/socials/kofi.svg';
 import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 
 const Navbar = async () => {
   return (
@@ -22,7 +21,7 @@ const Navbar = async () => {
           variant={'outline'}
           className="border-[#b8b594] bg-[#f2f5e0] text-[#4a5568] hover:bg-[#9cad85] hover:text-[#29303d]"
         >
-          <Image alt="Ko-Fi logo" src={Kofi} style={{ objectFit: 'contain', width: '18px' }} />
+          <Kofi />
           Support me
         </Button>
       </Container>

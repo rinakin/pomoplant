@@ -1,12 +1,11 @@
 'use client';
 import React from 'react';
 import { Settings } from 'lucide-react';
-import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 import AppSettings from '@/components/app-settings/app-settings';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import KoFi from '@/assets/socials/kofi.svg';
+import Kofi from '@/assets/socials/kofi.svg';
 
 const AppMainNav = () => {
   return (
@@ -15,11 +14,12 @@ const AppMainNav = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              className="[&_svg]:size-6"
               size={'icon'}
               variant="ghost"
               onClick={() => window.open('https://ko-fi.com', '_blank')}
             >
-              <Image src={KoFi} alt="Ko-Fi icon" style={{ objectFit: 'contain', width: '24px' }} />
+              <Kofi />
             </Button>
           </TooltipTrigger>
           <TooltipContent>
