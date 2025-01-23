@@ -99,7 +99,6 @@ const AnimatedProgress: React.FC<AnimatedProgressProps> = ({
       animationData={animationData}
       className={cn('max-w-[425px]', lottieProps.className)}
       {...lottieProps}
-      aria-label="Session progress animation" // Descriptive label
     />
   );
 };

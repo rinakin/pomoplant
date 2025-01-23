@@ -14,6 +14,7 @@ const AppMainNav = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
+              aria-label="Open Ko-Fi to support me"
               className="[&_svg]:size-6"
               size={'icon'}
               variant="ghost"

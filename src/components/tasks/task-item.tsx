@@ -32,12 +32,13 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
       className={cn(
         `relative flex items-center justify-between rounded-lg border-2 border-border p-3`,
         {
-          'border-muted bg-muted opacity-55': completed,
+          'border-muted bg-muted text-muted-foreground': completed,
         },
       )}
     >
       <div className="flex items-center gap-4">
         <Checkbox
+          aria-label="Mark task completed"
           id={`${task.id}`}
           className="md:h-5 md:w-5"
           checked={completed}
@@ -56,7 +57,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
           removeTask={removeTask}
           task={task}
           trigger={
-            <Button size={'icon'} variant={'ghost'}>
+            <Button size={'icon'} variant={'ghost'} aria-label="Edit task">
               <Pencil />
             </Button>
           }

@@ -23,7 +23,7 @@ body {
     --input: 55 20% 65%;
     --ring: 40 20% 60%;
     --muted: 80 15% 75%;
-    --muted-foreground: 218 17% 35%;
+    --muted-foreground: 218 17% 32%;
     --destructive: 0 50% 45%;
     --destructive-foreground: 0 100% 100%;
     --border: 55 20% 65%;
@@ -77,7 +77,7 @@ body {
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 215.4 16.3% 42%;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
@@ -132,7 +132,7 @@ body {
     --secondary: 180 60% 80%;
     --secondary-foreground: 180 60% 10%;
     --muted: 60 20% 90%;
-    --muted-foreground: 60 20% 40%;
+    --muted-foreground: 60 20% 30%;
     --accent: 270 70% 80%;
     --accent-foreground: 270 70% 10%;
     --destructive: 0 80% 80%;
@@ -188,7 +188,7 @@ body {
     --secondary: 45 70% 50%;
     --secondary-foreground: 45 70% 10%;
     --muted: 30 15% 85%;
-    --muted-foreground: 30 15% 40%;
+    --muted-foreground: 30 15% 30%;
     --accent: 15 80% 50%;
     --accent-foreground: 15 80% 10%;
     --destructive: 0 80% 50%;
@@ -245,7 +245,7 @@ body {
     --secondary: 200 15% 70%;
     --secondary-foreground: 200 15% 10%;
     --muted: 30 10% 90%;
-    --muted-foreground: 30 10% 40%;
+    --muted-foreground: 30 10% 30%;
     --accent: 340 15% 55%;
     --accent-foreground: 340 15% 98%;
     --destructive: 0 60% 50%;
@@ -301,7 +301,7 @@ body {
     --secondary: 180 10% 75%;
     --secondary-foreground: 180 10% 10%;
     --muted: 210 15% 90%;
-    --muted-foreground: 210 15% 40%;
+    --muted-foreground: 210 15% 30%;
     --accent: 240 15% 55%;
     --accent-foreground: 240 15% 98%;
     --destructive: 0 60% 50%;
@@ -357,7 +357,7 @@ body {
     --secondary: 60 10% 80%;
     --secondary-foreground: 60 10% 10%;
     --muted: 90 10% 90%;
-    --muted-foreground: 90 10% 40%;
+    --muted-foreground: 90 10% 30%;
     --accent: 180 15% 45%;
     --accent-foreground: 180 15% 98%;
     --destructive: 0 60% 50%;
