@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1074)"><rect width="1000" height="1000" fill="#f2f5e0"></rect><g transform="matrix(1.5625,0,0,1.5625,100,100)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="512" height="512"><svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_3)">
+<rect width="512" height="512" fill="#F2F5E0"></rect>
+<path d="M143 456H393M218 456C355.5 393.5 238 296 293 206M293 206C291.852 170.654 301.44 135.789 320.5 106C343 81 375.5 58.5 443 56C440.5 113.5 425.5 146 400.5 171C375.5 191 340.5 203.5 293 206ZM205.5 191C233 211 250.5 246 263 283.5C213 293.5 175.5 293.5 143 276C113 261 85.5 228.5 68 171C138 158.5 178 171 205.5 191Z" stroke="#274754" stroke-width="35" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_3">
+<path d="M0 28C0 12.536 12.536 0 28 0H484C499.464 0 512 12.536 512 28V484C512 499.464 499.464 512 484 512H28C12.536 512 0 499.464 0 484V28Z" fill="white"></path>
+</clipPath>
+<clipPath id="SvgjsClipPath1074"><rect width="1000" height="1000" x="0" y="0" rx="250" ry="250"></rect></clipPath></defs>
+</svg></svg></g></g></svg>
