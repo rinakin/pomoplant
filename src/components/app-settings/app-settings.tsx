@@ -15,7 +15,7 @@ import ThemeToggle from './theme-toggle';
 
 interface AppSettingsProps {
   trigger: React.ReactNode;
-  type: 'full' | 'session-only'; // 'full' for settings, 'session-only' for adding sessions
+  type: 'full' | 'session-only';
 }
 
 const AppSettings: React.FC<AppSettingsProps> = ({ trigger, type }) => {
