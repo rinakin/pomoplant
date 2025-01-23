@@ -18,11 +18,19 @@ const Navbar = async () => {
           Pomoplant
         </Link>
         <Button
+          asChild
           variant={'outline'}
           className="border-[#afaa93] bg-[#f9faf0] text-[#4a5568] hover:bg-[#9cad85] hover:text-[#29303d]"
         >
-          <Kofi />
-          Support me
+          <a
+            href="https://ko-fi.com/rinakin"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Support me on Ko-Fi"
+          >
+            <Kofi />
+            Support me
+          </a>
         </Button>
       </Container>
     </header>

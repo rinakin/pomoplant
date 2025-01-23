@@ -49,10 +49,9 @@ const SocialsList = () => {
         className={cn('hover:bg-[#9cad85] [&_svg]:size-6', { 'hover:bg-accent': isFocus })}
         size={'icon'}
         variant={'ghost'}
-        onClick={() => window.open('https://ko-fi.com', '_blank')}
       >
         <a
-          href="https://ko-fi.com"
+          href="https://ko-fi.com/rinakin"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Support me on Ko-Fi"

@@ -18,9 +18,16 @@ const AppMainNav = () => {
               className="[&_svg]:size-6"
               size={'icon'}
               variant="ghost"
-              onClick={() => window.open('https://ko-fi.com', '_blank')}
+              asChild
             >
-              <Kofi />
+              <a
+                href="https://ko-fi.com/rinakin"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Support me on Ko-Fi"
+              >
+                <Kofi />
+              </a>
             </Button>
           </TooltipTrigger>
           <TooltipContent>
