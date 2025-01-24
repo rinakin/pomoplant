@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 
 import './globals.css';
 import fonts from '@/lib/fonts';
@@ -49,7 +50,10 @@ export default function RootLayout({
           ]}
         >
           <div className="flex min-h-screen flex-col">
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow">
+              {children}
+              <Analytics />
+            </main>
           </div>
         </ThemeProvider>
       </body>
