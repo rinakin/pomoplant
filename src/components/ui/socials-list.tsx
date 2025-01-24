@@ -20,7 +20,7 @@ const SocialsList = () => {
         variant={'ghost'}
       >
         <a
-          href="https://github.com/schan610"
+          href="https://github.com/rinakin/pomoplant"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="My Github"
