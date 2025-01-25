@@ -16,12 +16,7 @@ import useSoundEffect from '@/hooks/use-sound-effect';
 import useWakeLock from '@/hooks/use-wake-lock';
 
 const TimerDisplay = () => {
-  const { request, release, released, type, isSupported } = useWakeLock({
-    onRelease: () => console.log(`Wake lock released`),
-    onRequest: () => {
-      console.log(`Wake lock activated`);
-    },
-  });
+  const { request, release, released, type, isSupported } = useWakeLock();
   const { minutes, seconds, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
     useTimerStore();
   const {
@@ -47,7 +42,6 @@ const TimerDisplay = () => {
 
   // Update timer or active session when the status changes
   useEffect(() => {
-    console.log(status);
     if (status === 'paused') {
       pauseTimer();
     } else if (status === 'inactive') {
