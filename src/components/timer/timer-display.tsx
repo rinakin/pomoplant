@@ -38,23 +38,28 @@ const TimerDisplay = () => {
 
   // Wake Lock API handler
   useEffect(() => {
-    if (isSupported && status === `active`) {
+    if (status === `active` && isSupported && !type) {
       request();
-    } else {
-      if (type && !released) release();
+    } else if (status !== 'active' && !released && type) {
+      release();
     }
   }, [status, isSupported, released, type, release, request]);
 
-  // Update active session when the timer completes
+  // Update timer or active session when the status changes
   useEffect(() => {
-    if (status === 'complete') {
+    console.log(status);
+    if (status === 'paused') {
+      pauseTimer();
+    } else if (status === 'inactive') {
+      resetTimer();
+    } else if (status === 'complete') {
       if (audio?.src && alarm?.value) {
         audio.muted = false;
         audio.play();
       }
       setActiveSession(); // Move to the next session when complete
     }
-  }, [status, setActiveSession, audio, alarm]);
+  }, [status, setActiveSession, audio, alarm, pauseTimer, resetTimer]);
 
   const handleStartTimer = () => {
     if (audio) {
@@ -131,7 +136,7 @@ const TimerDisplay = () => {
               </div>
             )}
           </CardContent>
-          <CardFooter className="flex items-center justify-between">
+          <CardFooter className="flex items-center justify-between p-4 md:p-6">
             {sessions.length > 0 && (
               <p className="rounded-full bg-muted px-4 py-1 text-lg font-medium md:px-6 md:text-2xl">
                 {allSessionsCompleted ? 'finished' : phase}
