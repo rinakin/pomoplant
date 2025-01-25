@@ -13,8 +13,15 @@ import TimerControls from '@/components/timer/timer-controls';
 import AppSettings from '@/components/app-settings/app-settings';
 import AnimatedProgress from '@/components/animated-progress';
 import useSoundEffect from '@/hooks/use-sound-effect';
+import useWakeLock from '@/hooks/use-wake-lock';
 
 const TimerDisplay = () => {
+  const { request, release, released, type, isSupported } = useWakeLock({
+    onRelease: () => console.log(`Wake lock released`),
+    onRequest: () => {
+      console.log(`Wake lock activated`);
+    },
+  });
   const { minutes, seconds, startTimer, status, pauseTimer, resetTimer, phase, updateTimeData } =
     useTimerStore();
   const {
@@ -28,6 +35,15 @@ const TimerDisplay = () => {
   } = useSessionStore();
   const activeSession = sessions[activeSessionIndex];
   const audio = useSoundEffect({ src: alarm ? alarm?.value : '' });
+
+  // Wake Lock API handler
+  useEffect(() => {
+    if (isSupported && status === `active`) {
+      request();
+    } else {
+      if (type && !released) release();
+    }
+  }, [status, isSupported, released, type]);
 
   // Update active session when the timer completes
   useEffect(() => {
