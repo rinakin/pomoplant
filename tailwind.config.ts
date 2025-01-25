@@ -63,5 +63,8 @@ export default {
       },
     },
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [tailwindAnimate],
 } satisfies Config;
