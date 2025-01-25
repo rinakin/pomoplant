@@ -43,7 +43,7 @@ const TimerDisplay = () => {
     } else {
       if (type && !released) release();
     }
-  }, [status, isSupported, released, type]);
+  }, [status, isSupported, released, type, release, request]);
 
   // Update active session when the timer completes
   useEffect(() => {

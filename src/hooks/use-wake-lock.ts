@@ -32,15 +32,15 @@ const useWakeLock = ({ onError, onRequest, onRelease }: WakeLockOptions | undefi
 
         wakeLock.current.onrelease = (e: Event) => {
           // Default to `true` - `released` API is experimental: https://caniuse.com/mdn-api_wakelocksentinel_released
-          setReleased((wakeLock.current && wakeLock.current.released) || true);
-          onRelease && onRelease(e);
+          setReleased(wakeLock.current?.released ?? true);
+          if (onRelease) onRelease(e);
           wakeLock.current = null;
         };
 
-        onRequest && onRequest();
-        setReleased((wakeLock.current && wakeLock.current.released) || false);
-      } catch (error: any) {
-        onError && onError(error);
+        if (onRequest) onRequest();
+        setReleased(wakeLock.current?.released ?? false); // Safer check
+      } catch (error: unknown) {
+        if (onError) onError(error as Error);
       }
     },
     [isSupported, onRequest, onError, onRelease],
@@ -58,7 +58,9 @@ const useWakeLock = ({ onError, onRequest, onRelease }: WakeLockOptions | undefi
       return warn('Calling `release` before `request` has no effect.');
     }
 
-    wakeLock.current && (await wakeLock.current.release());
+    if (wakeLock.current) {
+      await wakeLock.current.release();
+    }
   }, [isSupported]);
 
   return {
@@ -66,7 +68,7 @@ const useWakeLock = ({ onError, onRequest, onRelease }: WakeLockOptions | undefi
     request,
     released,
     release,
-    type: (wakeLock.current && wakeLock.current.type) || undefined,
+    type: wakeLock.current?.type,
   };
 };
 
