@@ -17,7 +17,6 @@ const LottiePlayer: React.FC<LottiePlayerProps> = ({ animationData, className })
 
   const handleDOMReady = () => {
     setIsLoading(false);
-    console.log('DOM is ready for the animation.');
   };
 
   return (
