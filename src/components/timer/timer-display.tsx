@@ -121,7 +121,7 @@ const TimerDisplay = () => {
                 {allSessionsCompleted ? 'finished' : phase}
               </p>
             )}
-            {!allSessionsCompleted && (
+            {!allSessionsCompleted && sessions.length !== 0 && (
               <Button
                 onClick={() => {
                   resetTimer();
