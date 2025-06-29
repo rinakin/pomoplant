@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Check, TabletSmartphone } from 'lucide-react';
 
 import { submitWaitlist } from '@/lib/actions/waitlist';
@@ -19,10 +19,17 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 
 const MobileWaitlist = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const status = localStorage.getItem('waitlist-signup-status');
+    const hasSignedUp = status === 'true';
+    setIsVisible(!hasSignedUp);
+    setIsSubmitted(!!hasSignedUp);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +38,7 @@ const MobileWaitlist = () => {
       const response = await submitWaitlist(email);
       setIsSubmitted(true);
       setEmail('');
+      localStorage.setItem('waitlist-signup-status', 'true');
       if (!response.success) throw new Error();
     } catch (error) {
       console.error('Error:', error);
@@ -54,7 +62,7 @@ const MobileWaitlist = () => {
             </DialogTrigger>
             <button
               onClick={() => setIsVisible(false)}
-              className="shadow-mdhover:bg-gray-300 absolute -right-1 -top-1 z-10 flex h-5 w-5 items-center justify-center rounded-full border bg-gray-200 text-base text-gray-600 hover:bg-gray-300"
+              className="shadow-mdhover:bg-gray-300 absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full border bg-gray-200 text-base text-gray-600 hover:bg-gray-300"
               aria-label="Close"
             >
               ×
@@ -103,7 +111,7 @@ const MobileWaitlist = () => {
                     />
                   </div>
                 </div>
-                <DialogFooter>
+                <DialogFooter className="gap-4">
                   <DialogClose asChild>
                     <Button variant="outline">Cancel</Button>
                   </DialogClose>
