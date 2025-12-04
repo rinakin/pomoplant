@@ -4,7 +4,6 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Github from '@/assets/socials/github.svg';
-import Kofi from '@/assets/socials/kofi.svg';
 import Linkedin from '@/assets/socials/linkedin.svg';
 import { usePathname } from 'next/navigation';
 
@@ -42,21 +41,6 @@ const SocialsList = () => {
           aria-label="Find me on Linkedin"
         >
           <Linkedin className={cn({ 'fill-current': isFocus })} />
-        </a>
-      </Button>
-      <Button
-        asChild
-        className={cn('hover:bg-[#9cad85] [&_svg]:size-6', { 'hover:bg-accent': isFocus })}
-        size={'icon'}
-        variant={'ghost'}
-      >
-        <a
-          href="https://ko-fi.com/rinakin"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Support me on Ko-Fi"
-        >
-          <Kofi className={cn({ 'fill-current': isFocus })} />
         </a>
       </Button>
     </div>
